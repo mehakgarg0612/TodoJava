@@ -1,38 +1,37 @@
 package pageObject;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage extends BasePage{
-	
-	public LoginPage(WebDriver driver) {
-		
-		super(driver);
-	}
-	
-	@FindBy(id = "email")
-	WebElement LoginemailAddress;
-	
-	@FindBy(id = "password")
-	WebElement Loginpassword;
-	
-	@FindBy(xpath = "//button[@type='submit']")
-	WebElement login;
+public class LoginPage {
 	
 	
-	public void setEmail(String email) {
-		LoginemailAddress.sendKeys(email);
-	}
-	
-	public void setPassword(String password) {
-		Loginpassword.sendKeys(password);
-	}
-	
-	public void clickLogin() {
-		login.click();
-	}
-	
+    private WebDriver driver;
+
+    private By email = By.id("email");
+    private By password = By.id("password");
+    private By loginButton = By.xpath("//button[@type='submit']");
+    
+    
+    
+
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public void setEmail(String userEmail) {
+        driver.findElement(email).sendKeys(userEmail);
+    }
+
+    public void setPassword(String pwd) {
+        driver.findElement(password).sendKeys(pwd);
+    }
+
+    public void clickLogin() {
+        driver.findElement(loginButton).click();
+    }
 }
 
 
