@@ -8,10 +8,7 @@ import testBase.BaseClass;
 
 public class LoginTest extends BaseClass
 {
-
-	
-	
-		
+			
 		// logger.info("*****Starting TC_001_LoginTest******");
 	
 		@Test (priority = 1)
