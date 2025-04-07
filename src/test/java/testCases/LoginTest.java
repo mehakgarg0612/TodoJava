@@ -11,9 +11,11 @@ public class LoginTest extends BaseClass
 		
 		// logger.info("*****Starting TC_002_LoginTest******");
 		
+		
+		//Login page
 		LoginPage lp = new LoginPage(driver);
-		lp.setEmail(null);
-		lp.setPassword(null);
+		lp.setEmail(p.getProperty("email"));
+		lp.setPassword(p.getProperty("pwd");
 		lp.clickLogin();
 		
 		
