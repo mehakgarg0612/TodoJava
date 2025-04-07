@@ -1,4 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
 
-public class log4j2 {
+<Configuration status="WARN">
+ 
+  <!-- Define properties -->
+  <Properties>
+    <Property name="basePath">./logs</Property>
+  </Properties>
 
-}
+  <Appenders>
+    <!-- Console Appender -->
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+
+    <!-- Rolling File Appender -->
+    <RollingFile name="File"
+                 fileName="${basePath}/automation.log"
+                 filePattern="${basePath}/automation-%d{yyyy-MM-dd}.log">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+      <SizeBasedTriggeringPolicy size="10MB"/>
+    </RollingFile>
+  </Appenders>
+
+  <Loggers>
+    <Root level="Info">
+      <!-- <AppenderRef ref="Console"/> --> <!-- Optional -->
+      <AppenderRef ref="File"/>
+    </Root>
+  </Loggers>
+
+</Configuration>

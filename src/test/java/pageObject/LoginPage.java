@@ -12,21 +12,21 @@ public class LoginPage extends BasePage{
 	}
 	
 	@FindBy(id = "email")
-	WebElement emailAddress;
+	WebElement LoginemailAddress;
 	
 	@FindBy(id = "password")
-	WebElement password;
+	WebElement Loginpassword;
 	
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement login;
 	
 	
 	public void setEmail(String email) {
-		emailAddress.sendKeys(email);
+		LoginemailAddress.sendKeys(email);
 	}
 	
-	public void setPassword(String pwd) {
-		password.sendKeys(pwd);
+	public void setPassword(String password) {
+		Loginpassword.sendKeys(password);
 	}
 	
 	public void clickLogin() {
