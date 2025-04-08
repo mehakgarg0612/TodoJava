@@ -7,12 +7,10 @@
         <methods>
           <include name="openApp"/>
           <include name="wrongPasswordTest"/>
-          <include name="blankPasswordOnlyTest"/>
+          <include name="blankPassword"/>
           <include name="closeApp"/>
           <include name="invalidEmailFormatTest"/>
           <include name="userNotExistTest"/>
-          <include name="blankEmailAndPasswordTest"/>
-          <include name="blankEmailOnlyTest"/>
         </methods>
       </class> <!-- testCases.LoginTest -->
     </classes>
