@@ -5,12 +5,16 @@ import org.testng.annotations.Test;
 import pageObject.LoginPage;
 import pageObject.LogoutPage;
 import testBase.BaseClass;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
+
 public class LoginTest extends BaseClass {
 
+	//LoginPage lp; 
+	
 	@Test(priority = 1)
 	public void validLoginTest() {
 		System.out.println("Starting validLoginTest...");
@@ -54,17 +58,16 @@ public class LoginTest extends BaseClass {
 		System.out.println("blankEmailTest completed.");
 	}
 
-//	@Test(priority = 4)
-//	public void blankPasswordTest() {
-//		System.out.println("Starting blankPasswordTest...");
-//		LoginPage lp = new LoginPage(driver);
-//		lp.setEmail(config.getEmail());
-//		lp.setPassword("");
-//		lp.clickLogin();
-//
-//		Assert.assertEquals(lp.getPasswordRequiredError(), "Password is required");
-//		System.out.println("blankPasswordTest completed.");
-//	}
+	@Test(priority = 4)
+	public void blankPasswordTest() {
+		System.out.println("Starting blankPasswordTest...");
+		LoginPage lp = new LoginPage(driver);
+		lp.setEmail(config.getEmail());
+		lp.setPassword("");
+		lp.clickLogin();
+		Assert.assertEquals(lp.getPasswordRequiredError(), "Password is required");
+		System.out.println("blankPasswordTest completed.");
+	}
 
 	@Test(priority = 5)
 	public void invalidEmailFormatTest() {
