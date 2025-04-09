@@ -2,16 +2,17 @@ package testCases;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import Util.BaseTest;
 import pageObject.LoginPage;
 import pageObject.LogoutPage;
-import testBase.BaseClass;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 
-public class LoginTest extends BaseClass {
+public class LoginTest extends BaseTest {
 
 	//LoginPage lp; 
 	

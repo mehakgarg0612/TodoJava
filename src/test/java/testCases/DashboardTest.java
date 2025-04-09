@@ -4,12 +4,12 @@ package testCases;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import Util.BaseTest;
 import pageObject.DashboardPage;
 import pageObject.LoginPage;
 import pageObject.LogoutPage;
-import testBase.BaseClass;
 
-public class DashboardTest extends BaseClass {
+public class DashboardTest extends BaseTest {
 	
 	@Test
 	public void verifyDashboardElements() {
