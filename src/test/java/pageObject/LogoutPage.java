@@ -23,5 +23,6 @@ public class LogoutPage {
     public void logout() {
         wait.until(ExpectedConditions.elementToBeClickable(profileMenu)).click();
         wait.until(ExpectedConditions.elementToBeClickable(logoutButton)).click();
+        wait.until(ExpectedConditions.urlToBe("https://todolist.idsil.com/login"));
     }
 }

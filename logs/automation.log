@@ -20,3 +20,9 @@
 09:25:34.710 [main] INFO  testCases.LoginTest - Browser closed
 09:27:17.256 [main] INFO  testCases.LoginTest - Application opened successfully
 09:27:44.490 [main] INFO  testCases.LoginTest - Browser closed
+07:05:20.005 [main] INFO  testCases.LoginTest - Application opened successfully
+07:06:10.135 [main] INFO  testCases.LoginTest - Browser closed
+07:15:27.501 [main] INFO  testCases.LoginTest - Application opened successfully
+07:16:20.111 [main] INFO  testCases.LoginTest - Browser closed
+07:42:25.516 [main] INFO  testCases.LoginTest - Application opened successfully
+07:42:56.234 [main] INFO  testCases.LoginTest - Browser closed
