@@ -21,6 +21,9 @@ public class BaseTest {
 
     @BeforeClass
     public void openApp() throws IOException {
+    	
+    	
+    	//Loading config.properties file
         config = new ReadConfig();
 
         logger = LogManager.getLogger(this.getClass());
