@@ -13,6 +13,7 @@ public class DashboardTest extends BaseTest {
 	
 	@Test
 	public void verifyDashboardElements() {
+		
 		LoginPage lp = new LoginPage(driver);
 		lp.setEmail(config.getEmail());
 		lp.setPassword(config.getPassword());
