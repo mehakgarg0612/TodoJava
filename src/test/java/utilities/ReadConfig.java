@@ -27,5 +27,31 @@ public class ReadConfig {
     public String getPassword() {
         return prop.getProperty("pwd");
     }
+    
+    public String getTaskName() {
+    	return prop.getProperty("taskName");
+    }
+    
+    public String getDescriptionArea() {
+    	return prop.getProperty("taskDescription");
+    }
+    
+    public String getStartDate() {
+    	return prop.getProperty("startDate");
+    }
+    
+    public String getDueDate() {
+    	return prop.getProperty("dueDate");
+    }
+    
+//    public String getSelectPriority() {
+//    	return prop.getProperty("selectPriority");
+//    }
+    
+    public String getTaskPriority() {
+    	return prop.getProperty("taskPriority");
+    }
+    
+    
 }
 

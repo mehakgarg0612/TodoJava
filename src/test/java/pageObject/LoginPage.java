@@ -34,7 +34,11 @@ public class LoginPage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-
+/**
+ * it sets the value for username or email
+ * @Input:- username
+ * @param userEmail
+ */
     //Actions
     public void setEmail(String userEmail) {
         driver.findElement(emailField).clear();

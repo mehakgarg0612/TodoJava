@@ -94,15 +94,15 @@ public class LoginTest extends BaseTest {
 		System.out.println("userNotExistTest completed.");
 	}
 
-//	@Test(priority = 7)
-//	public void wrongPasswordTest() {
-//		System.out.println("Starting wrongPasswordTest...");
-//		LoginPage lp = new LoginPage(driver);
-//		lp.setEmail(config.getEmail());
-//		lp.setPassword("mehak");
-//		lp.clickLogin();
-//
-//		Assert.assertEquals(lp.getWrongPasswordError(), "Incorrect Password");
-//		System.out.println("wrongPasswordTest completed.");
-//	}
+	@Test(priority = 7)
+	public void wrongPasswordTest() {
+		System.out.println("Starting wrongPasswordTest...");
+		LoginPage lp = new LoginPage(driver);
+		lp.setEmail(config.getEmail());
+		lp.setPassword("mehak");
+		lp.clickLogin();
+
+		Assert.assertEquals(lp.getWrongPasswordError(), "Incorrect Password");
+		System.out.println("wrongPasswordTest completed.");
+	}
 }

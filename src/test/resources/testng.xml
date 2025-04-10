@@ -1,7 +1,9 @@
 <suite name="ToDoLoginSuite">
   <test name="LoginTestCases">
     <classes>
-      <class name="testCases.LoginTest"/>
+    	<!--<class name="testCases.LoginTest"/>> 
+      	<class name="testCases.DashboardTest"/>-->
+      	<class name="testCases.CreateTaskTest"/>
     </classes>
   </test>
 </suite>
