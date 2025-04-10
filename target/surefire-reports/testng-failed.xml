@@ -6,8 +6,10 @@
       <class name="testCases.LoginTest">
         <methods>
           <include name="openApp"/>
-          <include name="wrongPasswordTest"/>
           <include name="closeApp"/>
+          <include name="blankPasswordTest"/>
+          <include name="invalidEmailFormatTest"/>
+          <include name="userNotExistTest"/>
         </methods>
       </class> <!-- testCases.LoginTest -->
     </classes>
