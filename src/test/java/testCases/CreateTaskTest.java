@@ -2,20 +2,22 @@ package testCases;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import Util.BaseTest;
 import enums.Priority;
 import pageObject.CreateTaskPage;
+import util.BaseTest;
 
 public class CreateTaskTest extends BaseTest {
 	
 	@BeforeMethod
     public void loginBeforeEachTest() {
+		 System.out.println("---- Running loginBeforeEachTest ----");
         login();  // calling login method from BaseTest
     }
 	
@@ -39,16 +41,30 @@ public class CreateTaskTest extends BaseTest {
 		 System.out.println("Clicked on Add Task button1");
 		taskPage.enterTaskDescription(config.getDescriptionArea());
 		 System.out.println("Clicked on Add Task button2");
-		taskPage.enterStartDate(config.getStartDate());
-		 System.out.println("Clicked on Add Task button3");
 		 
 		 
-		taskPage.enterDueDate(config.getDueDate());
-		 System.out.println("Clicked on Add Task button4");
+	 
+		taskPage.enterStartDate(getStartDate());
+		System.out.println("Clicked on Add Task button3");
+		 
+		System.out.println("Calling enterDueDate()...");
+		taskPage.enterDueDate(getDueDate());
+		System.out.println("Clicked on Add Task button4");
 
-		  Priority priority = Priority.valueOf(config.getTaskPriority().toUpperCase());
+		 
+		
+
+
+		 Priority priority = Priority.valueOf(config.getTaskPriority().toUpperCase());
 	      taskPage.selectPriority(priority);
 		 System.out.println("Clicked on Add Task button5");
+		 
+		 try {
+			Thread.sleep(8000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		
 		taskPage.clickCreate();
@@ -66,32 +82,34 @@ public class CreateTaskTest extends BaseTest {
 	}
 	
 	
-//	@Test(priority = 2)
-//	
-//	public void createTaskWithEmptyData() {
-//		
-//	
-//	CreateTaskPage  taskPage = new CreateTaskPage(driver);
-//	
-//	taskPage.clickOnProject();
-//	 taskPage.clickOnMyProjects();
-//	 taskPage.clickOnDailyMeetingBox();
-//	
-//	taskPage.clickAddTask();
-//	taskPage.enterTaskName("");
-//	taskPage.enterTaskDescription("");
-//	taskPage.enterStartDate("");
-//	taskPage.enterDueDate("");;
-//	taskPage.clickCreate();
-//	
-//	Assert.assertEquals(taskPage.getTaskNameError(), "Please enter the Task name");
-//	Assert.assertEquals(taskPage.getDescriptionError(), "Please enter the Task description");
-//	Assert.assertEquals(taskPage.getStartDate(), "Please select the start date");
-//	Assert.assertEquals(taskPage.getDueDate(),"Please select the due date");
-//	Assert.assertEquals(taskPage.getPrioritySelectError(),"Please select the Task Priority");
-//	
-//	
-//	}
+	/*@Test(priority = 2)
+	
+	public void createTaskWithEmptyData() {
+		
+	
+	CreateTaskPage  taskPage = new CreateTaskPage(driver);
+	
+	taskPage.clickOnProject();
+	 taskPage.clickOnMyProjects();
+	 taskPage.clickOnDailyMeetingBox();
+	
+	taskPage.clickAddTask();
+	taskPage.enterTaskName("");
+	taskPage.enterTaskDescription("");
+	taskPage.enterStartDate("");
+	taskPage.enterDueDate("");;
+	taskPage.clickCreate();
+	
+	Assert.assertEquals(taskPage.getTaskNameError(), "Please enter the Task name");
+	Assert.assertEquals(taskPage.getDescriptionError(), "Please enter the Task description");
+	Assert.assertEquals(taskPage.getStartDate(), "Please select the start date");
+	Assert.assertEquals(taskPage.getDueDate(),"Please select the due date");
+	Assert.assertEquals(taskPage.getPrioritySelectError(),"Please select the Task Priority");
+	System.out.println("Task not created successfully with HIGH priority.");
+	
+	}*/
+	
+	
 	
 //	@Test(priority = 3)
 //	

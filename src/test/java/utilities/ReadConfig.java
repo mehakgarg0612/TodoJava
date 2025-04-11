@@ -36,20 +36,32 @@ public class ReadConfig {
     	return prop.getProperty("taskDescription");
     }
     
-    public String getStartDate() {
-    	return prop.getProperty("startDate");
-    }
+//    public String getStartDate() {
+//    	return prop.getProperty("startDate");
+//    }
+//    
+//    public String getDueDate() {
+//    	return prop.getProperty("dueDate");
+//    }
+//    
     
-    public String getDueDate() {
-    	return prop.getProperty("dueDate");
-    }
     
 //    public String getSelectPriority() {
 //    	return prop.getProperty("selectPriority");
 //    }
     
+    
     public String getTaskPriority() {
     	return prop.getProperty("taskPriority");
+    }
+    
+    public String getSearchName()
+    {
+    	return prop.getProperty("searchName");
+    }
+    
+    public String getTaskDescriptionOfCreatedTask() {
+    	return prop.getProperty("taskDescriptionOfCreatedTask");
     }
     
     

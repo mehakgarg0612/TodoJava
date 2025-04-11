@@ -3,10 +3,10 @@ package testCases;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import Util.BaseTest;
 import pageObject.DashboardPage;
 import pageObject.LoginPage;
 import pageObject.LogoutPage;
+import util.BaseTest;
 
 public class DashboardTest extends BaseTest {
 	

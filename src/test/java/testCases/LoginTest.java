@@ -3,9 +3,9 @@ package testCases;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import Util.BaseTest;
 import pageObject.LoginPage;
 import pageObject.LogoutPage;
+import util.BaseTest;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;

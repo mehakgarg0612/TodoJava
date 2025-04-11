@@ -1,7 +1,9 @@
-package Util;
+package util;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -25,6 +27,8 @@ public class BaseTest {
     protected Logger logger;
 //    protected Properties p;
     protected ReadConfig config;
+    
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     @BeforeClass
     public void openApp() throws IOException {
@@ -67,4 +71,22 @@ public class BaseTest {
         wait.until(ExpectedConditions.urlToBe("https://todolist.idsil.com/dashboard"));
         System.out.println("Login successful.");
     }
+    
+   
+
+    // Get current system date as start date
+    public static String getStartDate() {
+        LocalDate today = LocalDate.now();
+        return formatter.format(today);
+    }
+
+    // Get due date by adding days from config
+    
+    //public String getDueDate() {
+//       int daysToAdd = Integer.parseInt(config.getDueDate());
+//        LocalDate dueDate = LocalDate.now().plusDays(daysToAdd);
+//        return formatter.format(dueDate);
+    //}
+
+
 }
