@@ -113,11 +113,19 @@ public class CreateTaskPage {
 
 
 	
+//	public void selectPriority(Priority priority) {
+//		wait.until(ExpectedConditions.elementToBeClickable(priorityDropdown)).click();
+//		By dynamicPriorityOption = By.xpath("//div[@class='ant-select-item-option-content' and normalize-space(text())='" + priority.name() + "']");
+//		wait.until(ExpectedConditions.elementToBeClickable(dynamicPriorityOption)).click();
+//		System.out.println("Selected Priority: " + priority.name());
+//	}
+	
+
+	
+	
+	
 	public void selectPriority(Priority priority) {
-		wait.until(ExpectedConditions.elementToBeClickable(priorityDropdown)).click();
-		By dynamicPriorityOption = By.xpath("//div[@class='ant-select-item-option-content' and normalize-space(text())='" + priority.name() + "']");
-		wait.until(ExpectedConditions.elementToBeClickable(dynamicPriorityOption)).click();
-		System.out.println("Selected Priority: " + priority.name());
+		
 	}
 	
 	public void clickCreate() {
