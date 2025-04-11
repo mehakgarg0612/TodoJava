@@ -112,3 +112,7 @@
 08:05:21.112 [main] INFO  testCases.DashboardTest - Application opened successfully
 08:05:25.137 [main] INFO  testCases.DashboardTest - Browser closed
 08:05:28.749 [main] INFO  testCases.LoginTest - Application opened successfully
+08:33:29.961 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+08:33:43.741 [main] INFO  testCases.CreateTaskTest - Browser closed
+08:34:22.558 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+08:34:34.714 [main] INFO  testCases.CreateTaskTest - Browser closed

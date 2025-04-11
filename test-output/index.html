@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-ToDoLoginSuite" class="navigator-link">
-              <span class="suite-name border-failed">ToDoLoginSuite</span>
+              <span class="suite-name border-passed">ToDoLoginSuite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-ToDoLoginSuite" class="navigator-link ">
-                    <span>D:\Work\2025\TodoJava\src\test\resources\testng.xml</span>
+                    <span>C:\Users\SAPNA\eclipse-workspace\ToDoListFramework_01\src\test\resources\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,21 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-ToDoLoginSuite" class="hide-methods failed suite-ToDoLoginSuite"> (hide)</a> <!-- hide-methods failed suite-ToDoLoginSuite -->
-                      <a href="#" panel-name="suite-ToDoLoginSuite" class="show-methods failed suite-ToDoLoginSuite"> (show)</a> <!-- show-methods failed suite-ToDoLoginSuite -->
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-ToDoLoginSuite" class="hide-methods passed suite-ToDoLoginSuite"> (hide)</a> <!-- hide-methods passed suite-ToDoLoginSuite -->
+                      <a href="#" panel-name="suite-ToDoLoginSuite" class="show-methods passed suite-ToDoLoginSuite"> (show)</a> <!-- show-methods passed suite-ToDoLoginSuite -->
                     </span>
-                    <div class="method-list-content failed suite-ToDoLoginSuite">
+                    <div class="method-list-content passed suite-ToDoLoginSuite">
                       <span>
-                        <img src="failed.png" width="3%"/>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-ToDoLoginSuite" title="testCases.CreateTaskTest" class="method navigator-link" hash-for-method="createTaskWithValidData">createTaskWithValidData</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content failed suite-ToDoLoginSuite -->
+                    </div> <!-- method-list-content passed suite-ToDoLoginSuite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -118,9 +118,9 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-ToDoLoginSuite" class="panel ToDoLoginSuite">
-          <div class="suite-ToDoLoginSuite-class-failed">
+          <div class="suite-ToDoLoginSuite-class-passed">
             <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
+              <img src="passed.png"/>
               <span class="class-name">testCases.CreateTaskTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -129,27 +129,14 @@
                   <a name="createTaskWithValidData">
                   </a> <!-- createTaskWithValidData -->
                   <span class="method-name">createTaskWithValidData</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //input[@id=&apos;priority&apos;] (tried for 10 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.11.0&apos;, revision: &apos;040bc5406b&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.6&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.85, chrome: {chromedriverVersion: 135.0.7049.84 (6c019e560019..., userDataDir: C:\Users\MEHAK~1.GAR\AppDat...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57949}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57949/devtoo..., se:cdpVersion: 135.0.7049.85, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: a77173bf62b2d0928bdc1ba572166a1f
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
-	at pageObject.CreateTaskPage.selectPriority(CreateTaskPage.java:117)
-	at testCases.CreateTaskTest.createTaskWithValidData(CreateTaskTest.java:50)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 25 stack frames
-</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-ToDoLoginSuite-class-failed -->
+          </div> <!-- suite-ToDoLoginSuite-class-passed -->
         </div> <!-- panel ToDoLoginSuite -->
         <div panel-name="test-xml-ToDoLoginSuite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">D:\Work\2025\TodoJava\src\test\resources\testng.xml</span>
+            <span class="header-content">C:\Users\SAPNA\eclipse-workspace\ToDoListFramework_01\src\test\resources\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -202,12 +189,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'createTaskWithValidData')
 data.setCell(0, 2, 'testCases.CreateTaskTest')
-data.setCell(0, 3, 18335);
+data.setCell(0, 3, 7512);
 window.suiteTableData['ToDoLoginSuite']= { tableData: data, tableDiv: 'times-div-ToDoLoginSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 18 seconds</span>
+              <span class="suite-total-time">Total running time: 7 seconds</span>
               <div id="times-div-ToDoLoginSuite">
               </div> <!-- times-div-ToDoLoginSuite -->
             </div> <!-- times-div -->
@@ -240,21 +227,19 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
                 <span class="method-name">ClearCache</span>
-                <span class="method-start">5052 ms</span>
+                <span class="method-start">3954 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">loginBeforeEachTest</span>
-                <span class="method-start">6333 ms</span>
+                <span class="method-start">6065 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">createTaskWithValidData</span>
-                <span class="method-start">7928 ms</span>
+                <span class="method-start">8043 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">closeApp</span>
-                <span class="method-start">26271 ms</span>
+                <span class="method-start">15555 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
