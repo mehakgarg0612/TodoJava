@@ -1,2 +1,4 @@
 # Ignore build output
 target/
+test-output/
+logs/
