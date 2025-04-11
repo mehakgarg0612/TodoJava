@@ -1,5 +1,0 @@
-testCases\LoginTest.class
-pageObject\LogoutPage.class
-pageObject\BasePage.class
-pageObject\LoginPage.class
-utilities\ReadConfig.class
