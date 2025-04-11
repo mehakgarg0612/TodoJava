@@ -6,6 +6,7 @@ import enums.Priority;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -81,14 +82,20 @@ public class CreateTaskPage {
 	 * this method takes an input of start date
 	 * @param startDate
 	 */
+	
+	
+	
+	
+	
 	public void enterStartDate(String startDate) {
 	    try {
-	        WebElement startDateElement = wait.until(ExpectedConditions.visibilityOfElementLocated(startDateField));
-	        
+	        WebElement startDateElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("startDate")));
+
 	        JavascriptExecutor js = (JavascriptExecutor) driver;
 	        js.executeScript("arguments[0].value = arguments[1];", startDateElement, startDate);
-	        
-	        driver.findElement(By.cssSelector("body")).click(); // To activate next field
+
+	        startDateElement.click(); // Focus on the field
+	        startDateElement.sendKeys(Keys.ENTER); // Close calendar
 	        System.out.println("Entered Start Date: " + startDate);
 	    } catch (Exception e) {
 	        System.out.println("Failed to enter Start Date: " + e.getMessage());
@@ -96,20 +103,50 @@ public class CreateTaskPage {
 	    }
 	}
 
-	public void enterDueDate(String endDate) {
+	public void enterDueDate(String dueDate) {
 	    try {
-	        WebElement dueDateElement = wait.until(ExpectedConditions.visibilityOfElementLocated(dueDateField));
-	        
-	        JavascriptExecutor js = (JavascriptExecutor) driver;
-	        js.executeScript("arguments[0].value = arguments[1];", dueDateElement, endDate);
+	        System.out.println("Calling enterDueDate()...");
 
-	        driver.findElement(By.cssSelector("body")).click();
-	        System.out.println("Entered Due Date: " + endDate);
+	        WebElement dueDateElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("endDate")));
+
+	        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+	        // Scroll into view
+	        js.executeScript("arguments[0].scrollIntoView(true);", dueDateElement);
+
+	        // Remove readonly attribute so we can set value
+	        js.executeScript("arguments[0].removeAttribute('readonly')", dueDateElement);
+
+	        // Set the date value
+	        js.executeScript("arguments[0].value = arguments[1];", dueDateElement, dueDate);
+
+	        // Fire change and blur events to simulate user interaction
+	        js.executeScript("arguments[0].dispatchEvent(new Event('change', { bubbles: true }))", dueDateElement);
+	        js.executeScript("arguments[0].dispatchEvent(new Event('blur', { bubbles: true }))", dueDateElement);
+
+	        System.out.println("✅ Entered Due Date: " + dueDate);
 	    } catch (Exception e) {
-	        System.out.println("Failed to enter Due Date: " + e.getMessage());
+	        System.out.println("❌ Failed to enter Due Date: " + e.getMessage());
+	        e.printStackTrace();
 	        throw e;
 	    }
 	}
+
+
+
+	
+//	public void enterStartDate(String startDate) {
+//		  driver.findElement((By.id("startDate"))).sendKeys(Keys.ENTER);
+//		
+//	}
+//	
+//	
+//	
+//	public void enterDueDate(String endDate) {
+//		 driver.findElement((By.id("endDate"))).sendKeys(Keys.ENTER);
+//	}
+	
+
 
 
 	

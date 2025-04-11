@@ -3,14 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.LoginTest">
+      <class name="testCases.CreateTaskTest">
         <methods>
-          <include name="openApp"/>
+          <include name="createTaskWithValidData"/>
           <include name="closeApp"/>
+          <include name="loginBeforeEachTest"/>
+          <include name="openApp"/>
           <include name="ClearCache"/>
-          <include name="blankPasswordTest"/>
         </methods>
-      </class> <!-- testCases.LoginTest -->
+      </class> <!-- testCases.CreateTaskTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

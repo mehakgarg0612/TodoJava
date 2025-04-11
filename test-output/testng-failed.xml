@@ -5,10 +5,10 @@
     <classes>
       <class name="testCases.CreateTaskTest">
         <methods>
-          <include name="openApp"/>
-          <include name="createTaskWithValidData"/>
           <include name="closeApp"/>
+          <include name="createTaskWithValidData"/>
           <include name="loginBeforeEachTest"/>
+          <include name="openApp"/>
           <include name="ClearCache"/>
         </methods>
       </class> <!-- testCases.CreateTaskTest -->

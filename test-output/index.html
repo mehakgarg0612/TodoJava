@@ -129,16 +129,11 @@
                   <a name="createTaskWithValidData">
                   </a> <!-- createTaskWithValidData -->
                   <span class="method-name">createTaskWithValidData</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //input[@id=&apos;priority&apos;] (tried for 10 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.11.0&apos;, revision: &apos;040bc5406b&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.6&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.85, chrome: {chromedriverVersion: 135.0.7049.84 (6c019e560019..., userDataDir: C:\Users\MEHAK~1.GAR\AppDat...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57949}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57949/devtoo..., se:cdpVersion: 135.0.7049.85, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: a77173bf62b2d0928bdc1ba572166a1f
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
-	at pageObject.CreateTaskPage.selectPriority(CreateTaskPage.java:117)
-	at testCases.CreateTaskTest.createTaskWithValidData(CreateTaskTest.java:50)
+                  <div class="stack-trace">java.lang.Error: Unresolved compilation problem: 
+	The method getDueDate() is undefined for the type ReadConfig
+
+	at util.BaseTest.getDueDate(BaseTest.java:85)
+	at testCases.CreateTaskTest.createTaskWithValidData(CreateTaskTest.java:51)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 ... Removed 25 stack frames
 </div> <!-- stack-trace -->
@@ -202,12 +197,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'createTaskWithValidData')
 data.setCell(0, 2, 'testCases.CreateTaskTest')
-data.setCell(0, 3, 18335);
+data.setCell(0, 3, 8873);
 window.suiteTableData['ToDoLoginSuite']= { tableData: data, tableDiv: 'times-div-ToDoLoginSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 18 seconds</span>
+              <span class="suite-total-time">Total running time: 8 seconds</span>
               <div id="times-div-ToDoLoginSuite">
               </div> <!-- times-div-ToDoLoginSuite -->
             </div> <!-- times-div -->
@@ -240,21 +235,21 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
                 <span class="method-name">ClearCache</span>
-                <span class="method-start">5052 ms</span>
+                <span class="method-start">5689 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">loginBeforeEachTest</span>
-                <span class="method-start">6333 ms</span>
+                <span class="method-start">5847 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">createTaskWithValidData</span>
-                <span class="method-start">7928 ms</span>
+                <span class="method-start">8891 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">closeApp</span>
-                <span class="method-start">26271 ms</span>
+                <span class="method-start">17779 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

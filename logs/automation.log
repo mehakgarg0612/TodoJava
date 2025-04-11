@@ -112,3 +112,67 @@
 08:05:21.112 [main] INFO  testCases.DashboardTest - Application opened successfully
 08:05:25.137 [main] INFO  testCases.DashboardTest - Browser closed
 08:05:28.749 [main] INFO  testCases.LoginTest - Application opened successfully
+10:21:50.767 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+10:22:02.157 [main] INFO  testCases.CreateTaskTest - Browser closed
+10:23:20.446 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+10:43:33.065 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+11:08:37.561 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+11:11:09.643 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+11:13:59.845 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+11:14:08.934 [main] INFO  testCases.CreateTaskTest - Browser closed
+13:03:38.089 [main] INFO  testCases.TaskUpdateDetailsTest - Application opened successfully
+13:03:50.321 [main] INFO  testCases.TaskUpdateDetailsTest - Browser closed
+13:05:38.134 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+13:05:46.851 [main] INFO  testCases.CreateTaskTest - Browser closed
+13:06:56.315 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+13:07:09.500 [main] INFO  testCases.CreateTaskTest - Browser closed
+13:08:54.265 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+13:09:04.267 [main] INFO  testCases.CreateTaskTest - Browser closed
+13:11:47.670 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+13:11:59.579 [main] INFO  testCases.CreateTaskTest - Browser closed
+13:17:46.534 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+13:17:59.234 [main] INFO  testCases.CreateTaskTest - Browser closed
+13:18:23.427 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+13:18:39.575 [main] INFO  testCases.CreateTaskTest - Browser closed
+13:19:42.770 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+13:19:58.345 [main] INFO  testCases.CreateTaskTest - Browser closed
+13:46:03.386 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+13:46:20.688 [main] INFO  testCases.CreateTaskTest - Browser closed
+13:51:05.272 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+13:51:18.570 [main] INFO  testCases.CreateTaskTest - Browser closed
+13:53:11.473 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+13:53:23.373 [main] INFO  testCases.CreateTaskTest - Browser closed
+13:54:10.885 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+13:54:19.198 [main] INFO  testCases.CreateTaskTest - Browser closed
+14:45:11.666 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+14:45:28.293 [main] INFO  testCases.CreateTaskTest - Browser closed
+14:53:56.615 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+14:54:11.871 [main] INFO  testCases.CreateTaskTest - Browser closed
+14:55:03.106 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+14:55:20.123 [main] INFO  testCases.CreateTaskTest - Browser closed
+15:11:46.269 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+15:11:59.162 [main] INFO  testCases.CreateTaskTest - Browser closed
+15:14:40.149 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+15:14:52.451 [main] INFO  testCases.CreateTaskTest - Browser closed
+15:17:08.292 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+15:17:26.571 [main] INFO  testCases.CreateTaskTest - Browser closed
+15:20:01.117 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+15:20:17.896 [main] INFO  testCases.CreateTaskTest - Browser closed
+15:46:36.230 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+15:46:48.045 [main] INFO  testCases.CreateTaskTest - Browser closed
+15:47:03.945 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+15:47:15.235 [main] INFO  testCases.CreateTaskTest - Browser closed
+15:47:48.686 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+15:48:00.678 [main] INFO  testCases.CreateTaskTest - Browser closed
+15:48:23.144 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+15:48:34.528 [main] INFO  testCases.CreateTaskTest - Browser closed
+15:51:22.262 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+15:51:31.472 [main] INFO  testCases.CreateTaskTest - Browser closed
+15:52:29.093 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+15:52:39.071 [main] INFO  testCases.CreateTaskTest - Browser closed
+17:16:26.013 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+17:16:37.238 [main] INFO  testCases.CreateTaskTest - Browser closed
+17:20:26.722 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+17:20:39.368 [main] INFO  testCases.CreateTaskTest - Browser closed
+17:25:36.329 [main] INFO  testCases.CreateTaskTest - Application opened successfully
+17:25:48.778 [main] INFO  testCases.CreateTaskTest - Browser closed
