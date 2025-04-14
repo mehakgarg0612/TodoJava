@@ -3,9 +3,9 @@
     <classes>
     	<!--<class name="testCases.LoginTest"/>> 
       	<class name="testCases.DashboardTest"/>
-  
-      	<class name="testCases.TaskUpdateDetailsTest"/>-->
-      	<class name="testCases.CreateTaskTest">
+  			<class name="testCases.CreateTaskTest"/>-->
+      	<class name="testCases.TaskUpdateDetailsTest">
+      
       	</class>
     </classes>
   </test>

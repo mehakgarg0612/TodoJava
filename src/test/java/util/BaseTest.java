@@ -48,6 +48,8 @@ public class BaseTest {
 
         logger.info("Application opened successfully");
     }
+    
+    
     @BeforeMethod
     public void ClearCache()
     {
@@ -82,11 +84,11 @@ public class BaseTest {
 
     // Get due date by adding days from config
     
-    //public String getDueDate() {
-//       int daysToAdd = Integer.parseInt(config.getDueDate());
-//        LocalDate dueDate = LocalDate.now().plusDays(daysToAdd);
-//        return formatter.format(dueDate);
-    //}
+    public String getDueDate() {
+       int daysToAdd = Integer.parseInt(config.getDueDate());
+        LocalDate dueDate = LocalDate.now().plusDays(daysToAdd);
+        return formatter.format(dueDate);
+    }
 
 
 }
