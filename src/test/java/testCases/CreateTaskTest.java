@@ -36,6 +36,7 @@ public class CreateTaskTest extends BaseTest {
 		 taskPage.clickOnDailyMeetingBox();
 		 taskPage.clickAddTask();
 		 System.out.println("Clicked on Add Task button");
+		 
 
 		taskPage.enterTaskName(config.getTaskName());
 		 System.out.println("Clicked on Add Task button1");
@@ -44,11 +45,11 @@ public class CreateTaskTest extends BaseTest {
 		 
 		 
 	 
-		taskPage.enterStartDate(getStartDate());
+		taskPage.enterStartDate(config.getStartDate());
 		System.out.println("Clicked on Add Task button3");
 		 
 		System.out.println("Calling enterDueDate()...");
-		taskPage.enterDueDate(getDueDate());
+		taskPage.enterDueDate(config.getDueDate());
 		System.out.println("Clicked on Add Task button4");
 
 		 

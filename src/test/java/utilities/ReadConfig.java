@@ -36,13 +36,13 @@ public class ReadConfig {
     	return prop.getProperty("taskDescription");
     }
     
-//    public String getStartDate() {
-//    	return prop.getProperty("startDate");
-//    }
+    public String getStartDate() {
+    	return prop.getProperty("startDate");
+    }
 //    
-//    public String getDueDate() {
-//    	return prop.getProperty("dueDate");
-//    }
+    public String getDueDate() {
+    	return prop.getProperty("dueDate");
+    }
 //    
     
     

@@ -48,6 +48,8 @@ public class BaseTest {
 
         logger.info("Application opened successfully");
     }
+    
+    
     @BeforeMethod
     public void ClearCache()
     {
@@ -55,11 +57,14 @@ public class BaseTest {
     	 System.out.println("URL is: " + config.getAppURL());
     	driver.get(config.getAppURL());
     }
+    
+    
     @AfterClass
     public void closeApp() {
         driver.quit();
         logger.info("Browser closed");
     }
+    
     
     public void login() {
         LoginPage lp = new LoginPage(driver);
@@ -75,18 +80,19 @@ public class BaseTest {
    
 
     // Get current system date as start date
-    public static String getStartDate() {
-        LocalDate today = LocalDate.now();
-        return formatter.format(today);
-    }
+    
+//    public static String getStartDate() {
+//        LocalDate today = LocalDate.now();
+//        return formatter.format(today);
+//    }
 
     // Get due date by adding days from config
     
-    //public String getDueDate() {
+//    public String getDueDate() {
 //       int daysToAdd = Integer.parseInt(config.getDueDate());
 //        LocalDate dueDate = LocalDate.now().plusDays(daysToAdd);
 //        return formatter.format(dueDate);
-    //}
+//    }
 
 
 }
