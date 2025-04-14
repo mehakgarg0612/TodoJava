@@ -1,4 +1,4 @@
-package pageObject;
+ package pageObject;
 
 import java.time.Duration;
 import enums.Priority;
@@ -28,8 +28,19 @@ public class CreateTaskPage {
 	By addTaskButton = By.xpath("//span[text()='Add Task']");
 	By taskNameField = By.xpath("//input[@placeholder='Enter Task Name']");
 	By taskDescriptionField = By.xpath("//textarea[@placeholder='Enter Task Description']");
-	By startDateField = By.xpath("//input[@id='startDate']");
-	By dueDateField = By.xpath("//input[@id='endDate']");
+	
+	
+//	By startDateField = By.xpath("//input[@id='startDate']");
+//	By dueDateField = By.xpath("//input[@id='endDate']");
+	
+	
+	
+	By datePickerInput = By.xpath("//div[@class='ant-picker-header-view']");
+    By displayedMonth = By.xpath("//div[@class='ant-picker-header-view']/button[@class='ant-picker-month-btn']");
+    By displayedYear = By.xpath("//div[@class='ant-picker-header-view']/button[@class='ant-picker-year-btn']");
+   // By nextMonthButton = By.xpath("//span[@class='ui-icon ui-icon-circle-triangle-e']");
+	
+	
 	By priorityDropdown = By.xpath("//input[@id='priority']");
 	//By selectPriorityOption = By.xpath("//div[@class='ant-select-item-option-content' and text()='HIGH']");
 	By createButton = By.xpath("//span[text()='CREATE']");
@@ -84,6 +95,7 @@ public class CreateTaskPage {
 	 */
 	
 	
+<<<<<<< HEAD
 		public void enterStartDate(String startDate) {
 		WebElement startDateInput = wait.until(ExpectedConditions.elementToBeClickable(By.id("startDate")));
 		startDateInput.clear(); // just in case
@@ -119,6 +131,38 @@ public class CreateTaskPage {
 	        // Select the day
 	        driver.findElement(By.xpath("//a[text()='" + day + "']")).click();
 	    }
+=======
+	 public void selectDueDate(String year, String month, String day) {
+	        driver.findElement(datePickerInput).click(); // Open date picker
+
+	        while (true) {
+	            String currentMonth = driver.findElement(displayedMonth).getText();
+	            String currentYear = driver.findElement(displayedYear).getText();
+
+	            if (currentMonth.equals(month) && currentYear.equals(year)) {
+	                break;
+	            }
+	            driver.findElement(nextMonthButton).click();
+	        }
+
+	
+
+	
+
+
+
+	
+	public void enterStartDate(String startDate) {
+		  driver.findElement((By.id("startDate"))).sendKeys(Keys.ENTER);
+		
+	}
+//	
+//	
+//	
+	public void enterDueDate(String endDate) {
+	 driver.findElement((By.id("endDate"))).sendKeys(Keys.ENTER);
+	}
+>>>>>>> 1e14a50947a61c744272a5597ed903f8215aec2e
 	
 
 

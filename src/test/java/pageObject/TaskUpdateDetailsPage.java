@@ -21,16 +21,20 @@ public class TaskUpdateDetailsPage {
 	By renderOnMyProjects = By.xpath("//span[text()='My Projects']");
 	By dailyMeetingBox = By.xpath("//div[@class='cursor-pointer']");
 	By renderOnSearchName = By.xpath("//input[@placeholder='Search by Assigned To']");
-	By clickingTaskName = By.xpath("//span[text()='AutomationTesting']");
+	By clickingTaskName = By.xpath("//span[text()='Testing2']");
 	By renderOnSlider = By.xpath("//div[@role='slider']");
 	By renderOnTaskDescription = By.xpath("//textarea[@class='ant-input css-txh9fw']");
+	By alertMsg =By.xpath("//div[@class='ant-message-custom-content ant-message-error']//span[2]");
+	//By errorOfProgressLowerLimit = By.xpath("//div[contains(text(),'Progress cannot be lower or equal to 44%')]");
 	
 	By clickOnHold = By.xpath("//span[text()='ON-HOLD']");
 	By reasonInputField = By.xpath("//input[@placeholder='REASON']");
 	By renderOnHoldTask = By.xpath("//span[text()='Add Task On Hold']");
 	By renderOnCancelButton = By.xpath("//span[text()='Cancel']");
-	By renderOnOKButton = By.xpath("//span[text()='OK']");
+	By renderOnOKButton = By.xpath("//button/span[text()='OK']");
 	
+	
+		
 	
 	//constructors
 	public TaskUpdateDetailsPage(WebDriver driver) {
@@ -67,9 +71,15 @@ public class TaskUpdateDetailsPage {
 		wait.until(ExpectedConditions.elementToBeClickable(clickingTaskName)).click();
 	}
 	
-	public void clickOnSlider() {
-		wait.until(ExpectedConditions.elementToBeClickable(renderOnSlider)).click();
+//	public void clickOnSlider() {
+//		wait.until(ExpectedConditions.elementToBeClickable(renderOnSlider)).click();
+//	}
+
+	
+	public WebElement getSlider() {
+	    return wait.until(ExpectedConditions.visibilityOfElementLocated(renderOnSlider));
 	}
+
 	
 	public void enterTaskDescription(String descriptionDetails) {
 		WebElement taskDetails = wait.until(ExpectedConditions.visibilityOfElementLocated(renderOnTaskDescription));
@@ -106,6 +116,26 @@ public class TaskUpdateDetailsPage {
 		wait.until(ExpectedConditions.elementToBeClickable(renderOnOKButton)).click();
 	}
 	
+//	public String getTaskUpdatedSuccessfully(){
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(alertMsg));
+//        return wait.until(ExpectedConditions.visibilityOfElementLocated(alertMsg)).getText();
+//    }
+//	
+//	public String getErrorOfProgressDescription() {
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(alertMsg));
+//	     return wait.until(ExpectedConditions.visibilityOfElementLocated(alertMsg)).getText();
+//	}
+//	
+//	public String getErrorOfProgressLowerLimit() {
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(alertMsg));
+//		return wait.until(ExpectedConditions.visibilityOfElementLocated(alertMsg)).getText();
+//	}
+
+	public String getAlertMessage() {
+	    return wait.until(ExpectedConditions.visibilityOfElementLocated(alertMsg)).getText();
+	}
+	
+
 	
 	
 }
