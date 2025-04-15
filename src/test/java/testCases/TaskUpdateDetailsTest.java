@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 import pageObject.TaskUpdateDetailsPage;
 import util.BaseTest;
+import utilities.SeleniumMethod;
 
 public class TaskUpdateDetailsTest extends BaseTest {
 
@@ -41,13 +42,12 @@ public class TaskUpdateDetailsTest extends BaseTest {
 		 Actions act = new Actions(driver);
 		 act.clickAndHold(slider).moveByOffset(30, 0).release().perform();
 		 
-		// wait.until(ExpectedConditions.attributeToBe(slider, "aria-valuenow", "30"));
 
 		 taskDetails.enterTaskDescription(config.getTaskDescriptionOfCreatedTask());
 	
 		taskDetails.clickOnOKButton();
 	
-		Assert.assertEquals(taskDetails.getAlertMessage() ,"Task updated successfully");
+		Assert.assertEquals(taskDetails.getTaskUpdatedSuccessfully() ,"Task updated successfully");
 		System.out.println("Test case 1 : Validate Task updated successfully");
 		
 	}
@@ -73,72 +73,111 @@ public class TaskUpdateDetailsTest extends BaseTest {
 
        
         taskDetails.enterTaskDescription(""); 
+        taskDetails.clickOnOKButton();
 
        
         
-        Assert.assertEquals(taskDetails.getAlertMessage(), "Please enter Progress Description");
+        Assert.assertEquals(taskDetails.getErrorOfProgressDescription(), "Please enter Progress Description");
         System.out.println("Test Case 2: Validation message displayed for missing description");
     }
 
-//	
-//	@Test(priority = 3)
-//	
-//	public void taskUpdateWithoutProgress() {
-//		
-//		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//		
-//		taskDetails.clickOnProject();
-//		taskDetails.clickOnMyProjects();
-//		taskDetails.clickOnDailyMeetingBox();
-//		taskDetails.clickOnSearchName(config.getSearchName());
-//		taskDetails.clickOnTaskName();
-//		
-//		WebElement slider = taskDetails.getSlider();
-//		 Actions act = new Actions(driver);
-//		 act.clickAndHold(slider).moveByOffset(0, 0).release().perform();
-//		 
-//		 taskDetails.enterTaskDescription(config.getTaskDescriptionOfCreatedTask());
-//		 taskDetails.clickOnOKButton();
-//		 
-//		 wait.until(ExpectedConditions.visibilityOfElementLocated(
-//		            By.xpath("//span[contains(text(),'Progress cannot be lower or equal to 44%')]")));
-//		 
-//		 Assert.assertEquals(taskDetails.getErrorOfProgressLowerLimit() ,"Progress cannot be lower or equal to 44%");
-//		 System.out.println("Test Case 3 : Validation progess cannot be lower than the prevoius one");
-//		
-//	}
+	
+	@Test(priority = 3)
+	
+	public void taskUpdateWithoutProgress() throws InterruptedException {
+		
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		taskDetails.clickOnProject();
+		taskDetails.clickOnMyProjects();
+		taskDetails.clickOnDailyMeetingBox();
+		taskDetails.clickOnSearchName(config.getSearchName());
+		taskDetails.clickOnTaskName();
+		
+		WebElement slider = taskDetails.getSlider();
+		 Actions act = new Actions(driver);
+		 act.clickAndHold(slider).moveByOffset(0, 0).release().perform();
+		 
+		   int currentValue = taskDetails.getCurrentProgressValue();
+		 
+		 taskDetails.enterTaskDescription(config.getTaskDescriptionOfCreatedTask());
+		 taskDetails.clickOnOKButton();
+		 
+		 String expectedMessage = String.format("Progress cannot be lower or equal to %d%%.", currentValue);
+
+		 Assert.assertEquals(taskDetails.getErrorOfProgressLowerLimit(), expectedMessage);
+		    
+	     System.out.println("Test Case: Validation message displayed for progress not increased - " + expectedMessage);
+		
+	}
     
-//	
-//	@Test(priority = 3)
-//    public void testClickOkWithProgressLessThanOrEqualToLast() throws InterruptedException {
-//        TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//
-//   
-//        taskDetails.clickOnProject();
-//        taskDetails.clickOnMyProjects();
-//        taskDetails.clickOnDailyMeetingBox();
-//        taskDetails.clickOnSearchName(config.getSearchName());
-//        taskDetails.clickOnTaskName();
-//
-//       
-//        WebElement slider = taskDetails.getSlider();
-//        Actions act = new Actions(driver);
-//        act.clickAndHold(slider).moveByOffset(-10, 0).release().perform(); 
-//
-// 
-//        taskDetails.enterTaskDescription("Test description");
-//
-//     
-//        taskDetails.clickOnOKButton();
-//
-//      
-//        WebElement validationMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
-//                By.xpath("//span[contains(text(),'Progress cannot be lower or equal to 44%')]")));
-//        
-//        Assert.assertEquals(validationMessage.getText(), "Progress cannot be lower or equal to 44%",
-//                "Validation message for invalid progress should be displayed");
-//        System.out.println("Test Case 3: Validation message displayed for invalid progress");
-//    }
+
+	@Test(priority = 4)
+	
+	public void addTaskOnHold() {
+		
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		taskDetails.clickOnProject();
+		taskDetails.clickOnMyProjects();
+		taskDetails.clickOnDailyMeetingBox();	
+		taskDetails.clickOnSearchName(config.getSearchName());
+		taskDetails.clickOnTaskName();
+		
+		taskDetails.setAddThisTaskOnHold();
+		taskDetails.enterHoldTaskDescription(config.getTaskOnHoldReason());
+		taskDetails.setAddTaskOnHold();
+		
+		Assert.assertEquals(taskDetails.getAlertTaskOnHoldMessageSuccesfully() ,"Task Restarted");
+		System.out.println("Test case 4 : Validate Task updated ON-HOLD successfully");
+		
+	}
+	
+	
+	
+	@Test(priority = 5)
+	public void restartTask() {
+		
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		taskDetails.clickOnProject();
+		taskDetails.clickOnMyProjects();
+		taskDetails.clickOnDailyMeetingBox();	
+		taskDetails.clickOnSearchName(config.getSearchName());
+		taskDetails.clickOnTaskName();
+		
+		taskDetails.clickRestartThisTask();
+		taskDetails.enterRestartDescription(config.getRestartTaskReason());
+		taskDetails.clickRestartTask();
+		
+		Assert.assertEquals(taskDetails.getAlertOnTaskRestart() ,"Task is On-Hold");
+		System.out.println("Test case 5 : Validate Task restarted successfully");
+		
+	}	
+	
+	
+	@Test(priority = 6)
+	public void deleteTask() {
+		SeleniumMethod seleniumMethod = new SeleniumMethod(driver);
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		taskDetails.clickOnProject();
+		taskDetails.clickOnMyProjects();
+		taskDetails.clickOnDailyMeetingBox();	
+		taskDetails.clickOnSearchName(config.getSearchName());
+		
+		taskDetails.clickOnDeleteTask("Sunil");
+		
+		//Assert.assertEquals(taskDetails.getAlertOnTaskDelete() ,"Task deleted successfully");
+		//System.out.println("Test case 6 : Validate Task deleted successfully");
+		
+	}
+	
+	
+	
+	
 }

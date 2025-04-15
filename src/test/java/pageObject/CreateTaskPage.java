@@ -2,8 +2,6 @@
 
 import java.time.Duration;
 import enums.Priority;
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -13,21 +11,19 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CreateTaskPage {
-	
-	
-	
+
 	//Locator
 	
 	private WebDriver driver;
 	private WebDriverWait wait;
 	
-	By renderOnProject = By.xpath("//span[text()='Projects']");
-	By renderOnMyProjects = By.xpath("//span[text()='My Projects']");
-	By dailyMeetingBox = By.xpath("//div[@class='cursor-pointer']");
+ 	final By renderOnProject = By.xpath("//span[text()='Projects']");
+	final By renderOnMyProjects = By.xpath("//span[text()='My Projects']");
+	final By dailyMeetingBox = By.xpath("//div[@class='cursor-pointer']");
 	
-	By addTaskButton = By.xpath("//span[text()='Add Task']");
-	By taskNameField = By.xpath("//input[@placeholder='Enter Task Name']");
-	By taskDescriptionField = By.xpath("//textarea[@placeholder='Enter Task Description']");
+	final By addTaskButton = By.xpath("//span[text()='Add Task']");
+	final By taskNameField = By.xpath("//input[@placeholder='Enter Task Name']");
+	final By taskDescriptionField = By.xpath("//textarea[@placeholder='Enter Task Description']");
 	
 	
 //	By startDateField = By.xpath("//input[@id='startDate']");

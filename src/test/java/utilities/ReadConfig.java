@@ -64,6 +64,14 @@ public class ReadConfig {
     	return prop.getProperty("taskDescriptionOfCreatedTask");
     }
     
+    public String getTaskOnHoldReason() {
+		return prop.getProperty("taskOnHoldReason");
+	}
+    
+    public String getRestartTaskReason() {
+    	return prop.getProperty("taskRestartReason");
+    }
+    
     
 }
 
