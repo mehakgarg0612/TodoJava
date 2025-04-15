@@ -15,15 +15,15 @@ public class LoginPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    private By emailField = By.id("email");
-    private By passwordField = By.id("password");
-    private By loginButton = By.xpath("//button[@type='submit']");
+    private final By emailField = By.id("email");
+    private final By passwordField = By.id("password");
+    private final By loginButton = By.xpath("//button[@type='submit']");
 
-    private By emailFormatError = By.xpath("//div[text()='Invalid email format']");
-    private By passwordRequiredError = By.xpath("//div[text()='Password is required']");
-    private By emailRequiredError = By.xpath("//div[text()='Email is required']");
-    private By userNotExistError = By.xpath("//span[contains(text(),'User does not exist')]");
-    private By wrongPasswordError = By.xpath("//span[contains(text(),'Incorrect Password')]");
+    private final By emailFormatError = By.xpath("//div[text()='Invalid email format']");
+    private final By passwordRequiredError = By.xpath("//div[text()='Password is required']");
+    private final By emailRequiredError = By.xpath("//div[text()='Email is required']");
+    private final By userNotExistError = By.xpath("//span[contains(text(),'User does not exist')]");
+    private final By wrongPasswordError = By.xpath("//span[contains(text(),'Incorrect Password')]");
 
 
 

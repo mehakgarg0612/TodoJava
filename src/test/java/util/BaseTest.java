@@ -88,19 +88,17 @@ public class BaseTest {
 
     // Get due date by adding days from config
     
-<<<<<<< HEAD
+
 //    public String getDueDate() {
 //       int daysToAdd = Integer.parseInt(config.getDueDate());
 //        LocalDate dueDate = LocalDate.now().plusDays(daysToAdd);
 //        return formatter.format(dueDate);
 //    }
-=======
     public String getDueDate() {
        int daysToAdd = Integer.parseInt(config.getDueDate());
         LocalDate dueDate = LocalDate.now().plusDays(daysToAdd);
         return formatter.format(dueDate);
     }
->>>>>>> 1e14a50947a61c744272a5597ed903f8215aec2e
 
 
 }
