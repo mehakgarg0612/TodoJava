@@ -117,7 +117,7 @@ public class TaskUpdateDetailsPage {
 	}
 	
 //	public String getTaskUpdatedSuccessfully(){
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(alertMsg));
+//	
 //        return wait.until(ExpectedConditions.visibilityOfElementLocated(alertMsg)).getText();
 //    }
 //	
