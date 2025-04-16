@@ -55,7 +55,7 @@ public class TaskUpdateDetailsTest extends BaseTest {
 	
 	
 	@Test(priority = 2)
-    public void testUpdateWithProgressButNoDescription() {
+    public void taskUpdateWithProgressButNoDescription() {
 		
         TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -201,14 +201,9 @@ public class TaskUpdateDetailsTest extends BaseTest {
 		 System.out.println("low priority");
 		taskDetails.clickOnUpdate();
 		
-		//Assert.assertEquals(taskDetails.getTaskUpdatedSuccessfully() ,"Task updated successfully");
+		Assert.assertEquals(taskDetails.getTaskUpdatedSuccessfully() ,"Task updated successfully");
 		System.out.println("Test case 7 : Validate Task updated successfully");
 		
 	}
-	
-	
-	
-	
-	
 	
 }

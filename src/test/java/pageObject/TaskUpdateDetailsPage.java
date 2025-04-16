@@ -56,7 +56,8 @@ public class TaskUpdateDetailsPage {
     By UPDATE = By.xpath("//span[text()='UPDATE']");
     //By CANCEL = By.xpath("//span[text()='Cancel']");
 
-	
+    
+    //Delete task
 	public static Function<String, By> DELETE_TASK = (taskName) ->
     By.xpath("//div[@class='ant-table-content']//tbody//tr[.//span[text()='" + taskName + "']]//td[8]//button//i[@class='ri-delete-bin-6-fill']");
 	
@@ -79,7 +80,8 @@ public class TaskUpdateDetailsPage {
 	public void clickOnUpdateTask(String taskName) {
 		driver.findElement(UPDATE_TASK.apply(taskName)).click();
 	}
-	 //reusuable method for alert message(ALERT_TASK_UPDATED_SUCCESSFULLY)
+	 
+	//reusuable method for alert message(ALERT_TASK_UPDATED_SUCCESSFULLY)
 	
 	public void enterUpdateTaskName(String UpdatedTaskName) {
 	WebElement UpdateTaskName =wait.until(ExpectedConditions.visibilityOfElementLocated(TASK_NAME_UPDATE));
@@ -100,9 +102,7 @@ public class TaskUpdateDetailsPage {
 		wait.until(ExpectedConditions.elementToBeClickable(UPDATE)).click();
 	}
 	
-//	public void clickOnCancel() {
-//		wait.until(ExpectedConditions.elementToBeClickable(CANCEL)).click();
-//	}
+	
 	
 	// DELETE TASK
 	public void clickOnDeleteTask(String taskName) {
@@ -113,11 +113,7 @@ public class TaskUpdateDetailsPage {
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(ALERT_TASK_DELETED)).getText();}
 	
 	
-	
- 
-	
-	
-	//task Creation
+	//TASK CREATION
 	public void clickOnProject() {
 		wait.until(ExpectedConditions.elementToBeClickable(PROJECTS)).click();
 	}
