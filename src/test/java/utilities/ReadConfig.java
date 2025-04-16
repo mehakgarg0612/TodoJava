@@ -73,5 +73,30 @@ public class ReadConfig {
     }
     
     
+    //MY PROFILE DATA
+    
+    public String getFirstName() {
+		return prop.getProperty("firstName");
+	}
+    
+	public String getLastName() {
+		return prop.getProperty("lastName");
+	}
+	
+   //UPDATE PASSWORD
+//	public String getOldPassword() {	
+//		return prop.getProperty("oldPassword");
+//	}				
+	
+	public String getNewPassword() {
+		return prop.getProperty("newPassword");
+	}
+	public String getConfirmPassword() {
+		return prop.getProperty("confirmPassword");
+	}
+	
+	
+	
+    
 }
 
