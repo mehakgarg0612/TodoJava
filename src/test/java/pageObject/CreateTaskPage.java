@@ -91,7 +91,7 @@ public class CreateTaskPage {
 	 */
 	
 	
-<<<<<<< HEAD
+
 		public void enterStartDate(String startDate) {
 		WebElement startDateInput = wait.until(ExpectedConditions.elementToBeClickable(By.id("startDate")));
 		startDateInput.clear(); // just in case
@@ -127,7 +127,7 @@ public class CreateTaskPage {
 	        // Select the day
 	        driver.findElement(By.xpath("//a[text()='" + day + "']")).click();
 	    }
-=======
+
 	 public void selectDueDate(String year, String month, String day) {
 	        driver.findElement(datePickerInput).click(); // Open date picker
 
@@ -158,10 +158,6 @@ public class CreateTaskPage {
 	public void enterDueDate(String endDate) {
 	 driver.findElement((By.id("endDate"))).sendKeys(Keys.ENTER);
 	}
->>>>>>> 1e14a50947a61c744272a5597ed903f8215aec2e
-	
-
-
 
 	
 //	public void selectPriority(Priority priority) {

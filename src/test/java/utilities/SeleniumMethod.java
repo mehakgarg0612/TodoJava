@@ -23,7 +23,7 @@ public class SeleniumMethod {
     }
 
     // 1. Delete a task by name from a table
-    public void deleteTask(String taskName, By tableLocator) {
+  /*  public void deleteTask(String taskName, By tableLocator) {
         try {
             // Locate the task table
             WebElement taskTable = driver.findElement(tableLocator);
@@ -54,7 +54,7 @@ public class SeleniumMethod {
         } catch (Exception e) {
             System.err.println("Unexpected error while deleting task: " + e.getMessage());
         }
-    }
+    }*/
 
 
 

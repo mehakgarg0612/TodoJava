@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.base.Function;
 
+import enums.Priority;
+
 public class TaskUpdateDetailsPage {
 	
 	//locators
@@ -24,10 +26,11 @@ public class TaskUpdateDetailsPage {
 	By PROGRESS_DESCRIPTION = By.xpath("//div//textarea[@class='ant-input css-txh9fw']");
 	
 	By ALERT_MESSAGE =By.xpath("//div[@class='ant-message-custom-content ant-message-error']//span[2]");
-	By ALERT_TASK_CREATED_SUCCESSFULLY = By.xpath("//div[@class='ant-message-custom-content ant-message-success']//span[2]");
+	By ALERT_TASK_UPDATED_SUCCESSFULLY = By.xpath("//div[@class='ant-message-custom-content ant-message-success']//span[2]");
 	
 	By ALERT_TASK_ON_HOLD = By.xpath("//div[@class='ant-message-custom-content ant-message-success']//span[2]");
 	By ALERT_TASK_RESTART = By.xpath("//div[@class='ant-message-custom-content ant-message-success']//span[2]");
+	By ALERT_TASK_DELETED = By.xpath("//div[@class='ant-message-custom-content ant-message-success']//span[2]");
 	//By errorOfProgressLowerLimit = By.xpath("//div[contains(text(),'Progress cannot be lower or equal to 44%')]");
 	
 	By ADD_THIS_TASK_ON_HOLD = By.xpath("//span[text()='ON-HOLD']");
@@ -40,9 +43,20 @@ public class TaskUpdateDetailsPage {
 	By CANCEL = By.xpath("//span[text()='Cancel']");
 	By OK= By.xpath("//button/span[text()='OK']");
 	
-	//CRUD OPERATION - ACTIONS BUTTON
 	
-	By UPDATE_TASK = By.xpath("");
+	
+	//CRUD OPERATION - (DELETE, UPDATE)
+	
+	public static Function<String, By> UPDATE_TASK = (taskName) -> 
+    By.xpath("//span[text()='" + taskName + "']/ancestor::tr//i[@class='ri-edit-fill']");
+    
+    By TASK_NAME_UPDATE =  By.xpath("//input[@placeholder='Enter Task Name']");
+    By TASK_DESCRIPTION = By.xpath("//textarea[@placeholder='Enter Task Description']");
+    By PRIORITY = By.xpath("//input[@id='priority']");
+    By UPDATE = By.xpath("//span[text()='UPDATE']");
+    //By CANCEL = By.xpath("//span[text()='Cancel']");
+
+	
 	public static Function<String, By> DELETE_TASK = (taskName) ->
     By.xpath("//div[@class='ant-table-content']//tbody//tr[.//span[text()='" + taskName + "']]//td[8]//button//i[@class='ri-delete-bin-6-fill']");
 	
@@ -55,17 +69,52 @@ public class TaskUpdateDetailsPage {
 		wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 	}
 	
-	//Actionsf
 	
-	//CRUD ACTION
 	
+	//Actions
+	
+	//CRUD ACTION  ---> UPDATE TASK
+	
+	
+	public void clickOnUpdateTask(String taskName) {
+		driver.findElement(UPDATE_TASK.apply(taskName)).click();
+	}
+	 //reusuable method for alert message(ALERT_TASK_UPDATED_SUCCESSFULLY)
+	
+	public void enterUpdateTaskName(String UpdatedTaskName) {
+	WebElement UpdateTaskName =wait.until(ExpectedConditions.visibilityOfElementLocated(TASK_NAME_UPDATE));
+	UpdateTaskName.clear();
+	UpdateTaskName.click();
+	UpdateTaskName.sendKeys(UpdatedTaskName);}
+		
+	public void enterUpdateTaskDescription(String UpdatedTaskDescription) {
+	WebElement UpdateDescription=wait.until(ExpectedConditions.visibilityOfElementLocated(TASK_DESCRIPTION));
+	UpdateDescription.clear();
+	UpdateDescription.click();
+	UpdateDescription.sendKeys(UpdatedTaskDescription);}
+	
+	public void selectPriority(Priority priority) {
+		}
+	
+	public void clickOnUpdate() {
+		wait.until(ExpectedConditions.elementToBeClickable(UPDATE)).click();
+	}
+	
+//	public void clickOnCancel() {
+//		wait.until(ExpectedConditions.elementToBeClickable(CANCEL)).click();
+//	}
+	
+	// DELETE TASK
 	public void clickOnDeleteTask(String taskName) {
-		driver.findElement(DELETE_TASK.apply(taskName)).click();
-	}
+		driver.findElement(DELETE_TASK.apply(taskName)).click();}
 	
-	public void clickOnUpdateTask() {
-		wait.until(ExpectedConditions.elementToBeClickable(UPDATE_TASK)).click();
-	}
+	
+	public String getTaskDeletedSuccessfully() {
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(ALERT_TASK_DELETED)).getText();}
+	
+	
+	
+ 
 	
 	
 	//task Creation
@@ -167,27 +216,11 @@ public class TaskUpdateDetailsPage {
 	public void clickOnOKButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(OK)).click();
 	}
-	
-<<<<<<< HEAD
-//	public String getTaskUpdatedSuccessfully(){
-//	
-//        return wait.until(ExpectedConditions.visibilityOfElementLocated(alertMsg)).getText();
-//    }
-//	
-//	public String getErrorOfProgressDescription() {
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(alertMsg));
-//	     return wait.until(ExpectedConditions.visibilityOfElementLocated(alertMsg)).getText();
-//	}
-//	
-//	public String getErrorOfProgressLowerLimit() {
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(alertMsg));
-//		return wait.until(ExpectedConditions.visibilityOfElementLocated(alertMsg)).getText();
-//	}
-=======
+
 	public String getTaskUpdatedSuccessfully(){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(ALERT_TASK_CREATED_SUCCESSFULLY )).getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(ALERT_TASK_UPDATED_SUCCESSFULLY )).getText();
     }
->>>>>>> 123faf3922e310dd5481e14cba796cefe21f85df
+
 
 	
 //	public String getTaskOnHoldMessage() {

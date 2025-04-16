@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import enums.Priority;
 import pageObject.TaskUpdateDetailsPage;
 import util.BaseTest;
 import utilities.SeleniumMethod;
@@ -170,12 +171,42 @@ public class TaskUpdateDetailsTest extends BaseTest {
 		taskDetails.clickOnDailyMeetingBox();	
 		taskDetails.clickOnSearchName(config.getSearchName());
 		
-		taskDetails.clickOnDeleteTask("Sunil");
+		taskDetails.clickOnDeleteTask("Mehak");
 		
-		//Assert.assertEquals(taskDetails.getAlertOnTaskDelete() ,"Task deleted successfully");
-		//System.out.println("Test case 6 : Validate Task deleted successfully");
+		Assert.assertEquals(taskDetails.getTaskDeletedSuccessfully() ,"Task deleted successfully");
+		System.out.println("Test case 6 : Validate Task deleted successfully");
 		
 	}
+	
+	@Test(priority = 7)
+	
+	public void taskUpdateWithPenButton() {
+		
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		taskDetails.clickOnProject();
+		taskDetails.clickOnMyProjects();
+		taskDetails.clickOnDailyMeetingBox();	
+		taskDetails.clickOnSearchName(config.getSearchName());
+		//taskDetails.clickOnTaskName();
+		
+		taskDetails.clickOnUpdateTask("Komal");
+		taskDetails.enterUpdateTaskName("Progress");
+		taskDetails.enterUpdateTaskDescription("Progress");
+		
+		 Priority priority = Priority.valueOf(config.getTaskPriority().toUpperCase());
+	      taskDetails.selectPriority(priority);
+	      
+		 System.out.println("low priority");
+		taskDetails.clickOnUpdate();
+		
+		//Assert.assertEquals(taskDetails.getTaskUpdatedSuccessfully() ,"Task updated successfully");
+		System.out.println("Test case 7 : Validate Task updated successfully");
+		
+	}
+	
+	
 	
 	
 	
