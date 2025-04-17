@@ -30,63 +30,72 @@ public class SortByPriorityTest extends BaseTest {
 	}
 	
 	//SELECT STATUS
-	@Test(priority = 2)
-	public void selectByStatusAll() throws InterruptedException {
+	@Test(priority = 2) // success of test case
+	public void selectByStatusAll() {
 		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
 		sortPriority.clickOnProject();
 		sortPriority.clickOnMyProjects();
 		sortPriority.clickOnDailyMeetingBox();
-		sortPriority.clickOnSelectStatus();
+	
 		
 		sortPriority.selectStatusAll();
-		Thread.sleep(9000);
 		System.out.println("Validate the by clicking 'All status' is visible");
 		
 	}
 	
-	@Test(priority = 3)
-	public void selectByOpenWIP_YTS() throws InterruptedException {
+	@Test(priority = 3) // success of test case
+	public void selectByOpenWIP_YTS()  {
 		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
 		sortPriority.clickOnProject();
 		sortPriority.clickOnMyProjects();
 		sortPriority.clickOnDailyMeetingBox();
-		sortPriority.clickOnSelectStatus();
-		sortPriority.selectStatusDropdown();
 		
 		sortPriority.selectStatusOpenWIPYTS();
-		Thread.sleep(6000);
 		System.out.println("Validate the by clicking 'Open/WIP/YTS' is visible");
 		
 	}
 	
-	@Test(priority = 4)
-	public void selectByPending() throws InterruptedException {
+	@Test(priority = 4)// success of test case
+	public void selectByPending() {
 		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
 		sortPriority.clickOnProject();
 		sortPriority.clickOnMyProjects();
 		sortPriority.clickOnDailyMeetingBox();
 		
 		sortPriority.selectStatusPending();
-		Thread.sleep(9000);
 		System.out.println("Validate the by clicking 'Pending' is visible");
 		
 	}
 	
 	
-	@Test(priority = 5)
-	public void selectByInProgress() throws InterruptedException {
+	@Test(priority = 5)// success of test case
+	public void selectByInProgress()  {
+		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
+		sortPriority.clickOnProject();
+		sortPriority.clickOnMyProjects();
+		sortPriority.clickOnDailyMeetingBox();
+		//sortPriority.clickOnSelectStatus();
+		//sortPriority.selectStatusDropdown();
+		
+		sortPriority.selectStatusInProgress();
+		System.out.println("Validate the by clicking 'In Progress' is visible");
+		
+	}
+	
+	@Test(priority = 6)// success of test case
+	public void selectByOnHold(){		
 		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
 		sortPriority.clickOnProject();
 		sortPriority.clickOnMyProjects();
 		sortPriority.clickOnDailyMeetingBox();
 		
-		sortPriority.selectStatusInProgress();
-		Thread.sleep(9000);
-		System.out.println("Validate the by clicking 'In Progress' is visible");
-		
+		sortPriority.selectStatusOnHold();
+		System.out.println("Validate the by clicking 'On Hold' is visible");
 	}
-		
-	@Test(priority = 6)
+	
+	
+	//TASKS ICON
+	@Test(priority = 7)
 	
 	public void sortByAllTasks() throws InterruptedException {
 		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
@@ -95,6 +104,7 @@ public class SortByPriorityTest extends BaseTest {
 		sortPriority.clickOnDailyMeetingBox();
 		
 		sortPriority.clickOnAllTasks();
+		Thread.sleep(7000);
 		System.out.println("Validate the by clicking 'All Tasks' is visible");
 		
 	}
