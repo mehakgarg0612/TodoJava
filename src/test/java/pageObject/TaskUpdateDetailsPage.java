@@ -2,6 +2,7 @@ package pageObject;
 
 import java.time.Duration;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -85,15 +86,29 @@ public class TaskUpdateDetailsPage {
 	
 	public void enterUpdateTaskName(String UpdatedTaskName) {
 	WebElement UpdateTaskName =wait.until(ExpectedConditions.visibilityOfElementLocated(TASK_NAME_UPDATE));
-	UpdateTaskName.clear();
-	UpdateTaskName.click();
-	UpdateTaskName.sendKeys(UpdatedTaskName);}
+	
+	UpdateTaskName.click(); 
+	UpdateTaskName.sendKeys(Keys.CONTROL + "a"); 
+	UpdateTaskName.sendKeys(Keys.DELETE);        
+	UpdateTaskName.sendKeys(UpdatedTaskName); 
+    
+//	UpdateTaskName.clear();
+//	UpdateTaskName.click();
+//	UpdateTaskName.sendKeys(UpdatedTaskName);
+    }
 		
 	public void enterUpdateTaskDescription(String UpdatedTaskDescription) {
 	WebElement UpdateDescription=wait.until(ExpectedConditions.visibilityOfElementLocated(TASK_DESCRIPTION));
-	UpdateDescription.clear();
-	UpdateDescription.click();
-	UpdateDescription.sendKeys(UpdatedTaskDescription);}
+	
+	 UpdateDescription.click(); 
+	 UpdateDescription.sendKeys(Keys.CONTROL + "a"); 
+	 UpdateDescription.sendKeys(Keys.DELETE);        
+	 UpdateDescription.sendKeys(UpdatedTaskDescription); 
+    
+//	UpdateDescription.clear();
+//	UpdateDescription.click();
+//	UpdateDescription.sendKeys(UpdatedTaskDescription);
+    }
 	
 	public void selectPriority(Priority priority) {
 		}

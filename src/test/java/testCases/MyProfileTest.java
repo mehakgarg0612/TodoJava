@@ -19,6 +19,8 @@ public class MyProfileTest extends BaseTest {
        login();  // calling login method from BaseTest
    }
 	
+	
+	//MY PROFILE
 	@Test(priority = 1) // Success of the test case
 	public void myProfileValidCredentials() {
 		

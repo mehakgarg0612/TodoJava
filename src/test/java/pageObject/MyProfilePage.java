@@ -119,9 +119,9 @@ public class MyProfilePage {
     public void setLastName(String lastName) {
 		WebElement LastName = wait.until(ExpectedConditions.elementToBeClickable(LAST_NAME));
 		
-		LastName.click(); // Ensure focus
-		LastName.sendKeys(Keys.CONTROL + "a"); // Select all
-		LastName.sendKeys(Keys.DELETE);        // Delete selected content
+		LastName.click(); 
+		LastName.sendKeys(Keys.CONTROL + "a"); 
+		LastName.sendKeys(Keys.DELETE);        
 		LastName.sendKeys(lastName);
 		
 //		LastName.clear();
@@ -136,9 +136,9 @@ public class MyProfilePage {
     public void setFirstName(String firstName) {
     	WebElement FirstName = wait.until(ExpectedConditions.elementToBeClickable(FIRST_NAME));
     	
-    	FirstName.click(); // Ensure focus
-        FirstName.sendKeys(Keys.CONTROL + "a"); // Select all
-        FirstName.sendKeys(Keys.DELETE);        // Delete selected content
+    	FirstName.click(); 
+        FirstName.sendKeys(Keys.CONTROL + "a"); 
+        FirstName.sendKeys(Keys.DELETE);        
         FirstName.sendKeys(firstName);  
         
         
