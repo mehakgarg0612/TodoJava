@@ -37,7 +37,7 @@ public class MyProfileTest extends BaseTest {
 		
 	}
 	
-	@Test(priority = 2)
+	@Test(priority = 2) // success of the test case
 	public void myProfileWithEmptyFirstName() {
 		
 		MyProfilePage myProfile = new MyProfilePage(driver);

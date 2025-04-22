@@ -14,7 +14,7 @@ import java.time.Duration;
 
 public class LoginTest extends BaseTest {
 
-	//LoginPage lp; 
+	//LoginPage lp;
 	
 	@Test(priority = 1)
 	public void validLoginTest() {

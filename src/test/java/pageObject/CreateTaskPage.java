@@ -172,7 +172,7 @@ public class CreateTaskPage {
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(TASK_NAME_REQUIRED_ERROR)).getText();
 	}
 	
-	public String getDescriptionError() {
+	public String  () {
 		return wait.until(ExpectedConditions.visibilityOfElementLocated( TASK_DESCRIPTION_REQUIRED_ERROR)).getText();
 	}
 	public  String getStartDate() {
