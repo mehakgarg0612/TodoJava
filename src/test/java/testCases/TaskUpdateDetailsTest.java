@@ -191,7 +191,7 @@ public class TaskUpdateDetailsTest extends BaseTest {
 		taskDetails.clickOnSearchName(config.getSearchName());
 		//taskDetails.clickOnTaskName();
 		
-		taskDetails.clickOnUpdateTask("Komal");
+		taskDetails.clickOnUpdateTask("Mehaktesting"); //----  you need to hardcode the task name here -------
 		taskDetails.enterUpdateTaskName("Progress");
 		taskDetails.enterUpdateTaskDescription("Progress");
 		
@@ -205,5 +205,62 @@ public class TaskUpdateDetailsTest extends BaseTest {
 		System.out.println("Test case 7 : Validate Task updated successfully");
 		
 	}
+	
+	
+	@Test(priority = 8)
+	public void taskUpdateWithPenButtonWithoutTaskName() {
+		
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		taskDetails.clickOnProject();
+		taskDetails.clickOnMyProjects();
+		taskDetails.clickOnDailyMeetingBox();	
+		taskDetails.clickOnSearchName(config.getSearchName());
+		//taskDetails.clickOnTaskName();
+		
+		taskDetails.clickOnUpdateTask("Progress");
+		taskDetails.enterUpdateTaskName("");
+		taskDetails.enterUpdateTaskDescription("Progress");
+		
+		 Priority priority = Priority.valueOf(config.getTaskPriority().toUpperCase());
+	      taskDetails.selectPriority(priority);
+	      
+		 System.out.println("low priority");
+		taskDetails.clickOnUpdate();
+		
+		Assert.assertEquals(taskDetails.getTaskNameError(), "Please enter the Task name");
+		System.out.println("Test case 9 : Validate Task updated successfully");
+		
+	}
+	
+	@Test(priority = 9)
+	public void taskUpdateWithPenButtonWithoutTaskDescription() {
+		
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		taskDetails.clickOnProject();
+		taskDetails.clickOnMyProjects();
+		taskDetails.clickOnDailyMeetingBox();	
+		taskDetails.clickOnSearchName(config.getSearchName());
+		//taskDetails.clickOnTaskName();
+		
+		taskDetails.clickOnUpdateTask("Progress");
+		taskDetails.enterUpdateTaskName("Progress");
+		taskDetails.enterUpdateTaskDescription("");
+		
+		 Priority priority = Priority.valueOf(config.getTaskPriority().toUpperCase());
+	      taskDetails.selectPriority(priority);
+	      
+		 System.out.println("low priority");
+		taskDetails.clickOnUpdate();
+		
+		Assert.assertEquals(taskDetails.getTaskDescriptionError(), "Please enter the Task description");
+		System.out.println("Test case 8 : Validate Task updated successfully");
+		
+	}
+	
+
 	
 }

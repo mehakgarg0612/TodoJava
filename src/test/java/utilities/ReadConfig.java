@@ -96,6 +96,41 @@ public class ReadConfig {
 	}
 	
 	
+	//REGISTRATION DATA
+	
+	public String getRegFirstName() {
+		return prop.getProperty("firstNameReg");
+	}
+	
+	public String getRegLastName() {
+		return prop.getProperty("lastNameReg");
+	}
+	
+		public String getRegEmail() {
+		return prop.getProperty("emailIdReg");
+		
+	}
+		
+		public String getRegEmployeeCode() {
+			return prop.getProperty("empCodeReg");
+		}
+		
+		public String getRegPassword() {
+		return prop.getProperty("passwordReg");
+	}
+			
+		
+		public String getRegConfirmPassword() {
+		return prop.getProperty("confirmPasswordReg");
+	}
+
+		public String getAppRegURL() {
+	        return prop.getProperty("appUrlReg");
+	    }
+
+		
+	
+	
 	
     
 }

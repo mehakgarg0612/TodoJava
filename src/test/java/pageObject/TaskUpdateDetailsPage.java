@@ -44,7 +44,8 @@ public class TaskUpdateDetailsPage {
 	By CANCEL = By.xpath("//span[text()='Cancel']");
 	By OK= By.xpath("//button/span[text()='OK']");
 	
-	
+	By TASK_NAME_ERROR = By.xpath("//div[text()='Please enter the Task name']");
+	By TASK_DESCRIPTION_ERROR = By.xpath("//div[text()='Please enter the Task description']");
 	
 	//CRUD OPERATION - (DELETE, UPDATE)
 	
@@ -75,6 +76,14 @@ public class TaskUpdateDetailsPage {
 	
 	//Actions
 	
+	
+	public String getTaskNameError() {
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(TASK_NAME_ERROR)).getText();
+	}
+	
+	public String getTaskDescriptionError() {
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(TASK_DESCRIPTION_ERROR)).getText();
+	}
 	//CRUD ACTION  ---> UPDATE TASK
 	
 	
