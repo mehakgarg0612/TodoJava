@@ -14,6 +14,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -30,36 +31,25 @@ public class BaseTest {
     
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    @BeforeClass
+    @BeforeMethod
+   
     public void openApp() throws IOException {
-    	
-    	
-    	//Loading config.properties file
         config = new ReadConfig();
-        
-        
-        // Launch Chrome with options
         logger = LogManager.getLogger(this.getClass());
-        
+
         driver = new ChromeDriver();
         driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));      
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
 
-        logger.info("Application opened successfully");
+        System.out.println("URL is: " + config.getAppURL());
+        driver.get(config.getAppURL()); // <===== THIS LINE WAS MISSING
+
+        logger.info("Application opened successfully and navigated to URL.");
     }
+
     
-    
-    @BeforeMethod
-    public void ClearCache()
-    {
-    	driver.manage().deleteAllCookies();
-    	 System.out.println("URL is: " + config.getAppURL());
-    	driver.get(config.getAppURL());
-    }
-    
-    
-    @AfterClass
+    @AfterMethod
     public void closeApp() {
         driver.quit();
         logger.info("Browser closed");

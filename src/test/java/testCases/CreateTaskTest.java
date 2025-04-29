@@ -21,8 +21,7 @@ public class CreateTaskTest extends BaseTest {
         login();  // calling login method from BaseTest
     }
 	
-
-
+	
 	@Test(priority = 1)
 	 public void createTaskWithValidData() {
 		
@@ -39,7 +38,7 @@ public class CreateTaskTest extends BaseTest {
 		 
 
 		taskPage.enterTaskName(config.getTaskName());
-		 System.out.println("Clicked on Add Task button1");
+		System.out.println("Clicked on Add Task button1");
 		taskPage.enterTaskDescription(config.getDescriptionArea());
 		 System.out.println("Clicked on Add Task button2");
 		 

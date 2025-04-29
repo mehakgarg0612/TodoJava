@@ -197,11 +197,23 @@ public class RegistrationTest extends BaseTest {
 		
 	}
 	
-//	@Test(priority = 11)
-//	
-//	public void TRCodeShouldBeUnique
+	@Test(priority = 11)
 	
+	public void TRCodeShouldBeUnique() {
+		System.out.println("Starting TRCodeShouldBeUnique...");
+		RegisterAccountPage rp = new RegisterAccountPage(driver);
+		rp.clickRegisterAccount();
+		rp.enterFirstName(config.getRegFirstName());
+		rp.enterLastName(config.getRegLastName());
+		rp.enterEmail(config.getRegEmail());
+		rp.enterEmployeeCode(config.getRegEmployeeCode());
+		rp.enterPassword(config.getRegPassword());
+		rp.enterConfirmPassword(config.getRegConfirmPassword());
+		rp.clickSubmit();
+		
+		Assert.assertEquals(rp.getEmployeeCodeUniqueError(), "Employee code should be unique");
+		System.out.println("TRCodeShouldBeUnique completed.");
+		
+	}
 	
-	
-
 }

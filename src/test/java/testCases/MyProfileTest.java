@@ -142,20 +142,20 @@ public class MyProfileTest extends BaseTest {
 
 	// UPDATE PASSWORD
 	
-	@Test(priority = 9) //success of the test case
-	public void updatePasswordWithValidCrendentials() {
-		MyProfilePage myProfile = new MyProfilePage(driver);
-		myProfile.clickOnProfileButton();
-		myProfile.clickOnChangePassword();
-		myProfile.setCurrentPassword(config.getPassword());
-		myProfile.setNewPassword(config.getNewPassword());
-		myProfile.setConfirmNewPassword(config.getConfirmPassword());
-		myProfile.clickOnSaveChanges();
-		
-		Assert.assertEquals(myProfile.getAlertMessage(), "Password updated successfully");
-		System.out.println("Test case 9 : Validate Password updated successfully");
-		
-	}
+//	@Test(priority = 9) //success of the test case
+//	public void updatePasswordWithValidCrendentials() {
+//		MyProfilePage myProfile = new MyProfilePage(driver);
+//		myProfile.clickOnProfileButton();
+//		myProfile.clickOnChangePassword();
+//		myProfile.setCurrentPassword(config.getPassword());
+//		myProfile.setNewPassword(config.getNewPassword());
+//		myProfile.setConfirmNewPassword(config.getConfirmPassword());
+//		myProfile.clickOnSaveChanges();
+//		
+//		Assert.assertEquals(myProfile.getAlertMessage(), "Password updated successfully");
+//		System.out.println("Test case 9 : Validate Password updated successfully");
+//		
+//	}
 	
 	@Test(priority = 10) //success of the test case
 	public void updatePasswordWithEmptyCurrentPassword() {
@@ -273,6 +273,21 @@ public class MyProfileTest extends BaseTest {
 		boolean urlMatched = wait.until(ExpectedConditions.urlToBe("https://todolist.idsil.com/dashboard"));
 		Assert.assertTrue(urlMatched, "Back to Profile failed: URL did not match");
 		System.out.println("Test case 16 : Validate message when going back to profile after updating password");
+		
+	}
+	
+	@Test(priority = 18) //success of the test case
+	public void updatePasswordWithValidCrendentials() {
+		MyProfilePage myProfile = new MyProfilePage(driver);
+		myProfile.clickOnProfileButton();
+		myProfile.clickOnChangePassword();
+		myProfile.setCurrentPassword(config.getPassword());
+		myProfile.setNewPassword(config.getNewPassword());
+		myProfile.setConfirmNewPassword(config.getConfirmPassword());
+		myProfile.clickOnSaveChanges();
+		
+		Assert.assertEquals(myProfile.getAlertMessage(), "Password updated successfully");
+		System.out.println("Test case 9 : Validate Password updated successfully");
 		
 	}
 

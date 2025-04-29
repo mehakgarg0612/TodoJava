@@ -16,7 +16,7 @@ public class LoginTest extends BaseTest {
 
 	//LoginPage lp;
 	
-	@Test(priority = 1)
+	@Test(groups = "regression")
 	public void validLoginTest() {
 		System.out.println("Starting validLoginTest...");
 		LoginPage lp = new LoginPage(driver);
@@ -34,7 +34,7 @@ public class LoginTest extends BaseTest {
 		System.out.println("validLoginTest completed.");
 	}
 
-	@Test(priority = 2)
+	@Test(groups = "regression")
 	public void blankEmailAndPasswordTest() {
 		System.out.println("Starting blankEmailAndPasswordTest...");
 		LoginPage lp = new LoginPage(driver);
@@ -47,7 +47,7 @@ public class LoginTest extends BaseTest {
 		System.out.println("blankEmailAndPasswordTest completed.");
 	}
 
-	@Test(priority = 3)
+	@Test(groups = "regression")
 	public void blankEmailTest() {
 		System.out.println("Starting blankEmailTest...");
 		LoginPage lp = new LoginPage(driver);
@@ -59,7 +59,7 @@ public class LoginTest extends BaseTest {
 		System.out.println("blankEmailTest completed.");
 	}
 
-	@Test(priority = 4)
+	@Test(groups = "regression")
 	public void blankPasswordTest() {
 		System.out.println("Starting blankPasswordTest...");
 		LoginPage lp = new LoginPage(driver);
@@ -70,7 +70,7 @@ public class LoginTest extends BaseTest {
 		System.out.println("blankPasswordTest completed.");
 	}
 
-	@Test(priority = 5)
+	@Test(groups = "regression")
 	public void invalidEmailFormatTest() {
 		System.out.println("Starting invalidEmailFormatTest...");
 		LoginPage lp = new LoginPage(driver);
@@ -82,19 +82,19 @@ public class LoginTest extends BaseTest {
 		System.out.println("invalidEmailFormatTest completed.");
 	}
 
-	@Test(priority = 6)
+	@Test(groups = "regression")
 	public void userNotExistTest() {
 		System.out.println("Starting userNotExistTest...");
 		LoginPage lp = new LoginPage(driver);
-		lp.setEmail("mehakgarg@idsil.com");
+		lp.setEmail("mehakgarg2@idsil.com");
 		lp.setPassword(config.getPassword());
 		lp.clickLogin();
-
+		
 		Assert.assertEquals(lp.getUserNotExistError(), "User does not exist");
 		System.out.println("userNotExistTest completed.");
 	}
 
-	@Test(priority = 7)
+	@Test(groups = "regression")
 	public void wrongPasswordTest() {
 		System.out.println("Starting wrongPasswordTest...");
 		LoginPage lp = new LoginPage(driver);

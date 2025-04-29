@@ -26,12 +26,13 @@ public class RegisterAccountPage {
     private final By FIRST_NAME_REQUIRED_ERROR = By.xpath("//div[text()='First Name is required']");
     private final By LAST_NAME_REQUIRED_ERROR = By.xpath("//div[text()='Last Name is required']");
     private final By EMAIL_REQUIRED_ERROR = By.xpath("//div[text()='Email is required']");
-     private final By EMPLOYEE_CODE_REQUIRED_ERROR = By.xpath("//div[text()='Employee Code is required']");
-     private final By PASSWORD_REQUIRED_ERROR = By.xpath("//div[text()='Password is required']");
-     private final By CONFIRM_PASSWORD_REQUIRED_ERROR = By.xpath("//div[text()='Please confirm your password']");
-     private final By PASSWORD_MISMATCH_ERROR = By.xpath("//div[text()='The passwords do not match']");
-     private final By INVALID_EMAIL_FORMAT_ERROR = By.xpath("//div[text()='Invalid email format']");
-     private final By EMAIL_ALREADY_REGISTERED_ERROR = By.xpath("//div[@class='ant-message-custom-content ant-message-error']//span[2]");
+    private final By EMPLOYEE_CODE_REQUIRED_ERROR = By.xpath("//div[text()='Employee Code is required']");
+    private final By PASSWORD_REQUIRED_ERROR = By.xpath("//div[text()='Password is required']");
+    private final By CONFIRM_PASSWORD_REQUIRED_ERROR = By.xpath("//div[text()='Please confirm your password']");
+    private final By PASSWORD_MISMATCH_ERROR = By.xpath("//div[text()='The passwords do not match']");
+    private final By INVALID_EMAIL_FORMAT_ERROR = By.xpath("//div[text()='Invalid email format']");
+    private final By EMAIL_ALREADY_REGISTERED_ERROR = By.xpath("//div[@class='ant-message-custom-content ant-message-error']//span[2]");
+    private final By EMPLOYEE_CODE_UNIQUE_ERROR = By.xpath("//div[@class='ant-message-custom-content ant-message-error']//span[2]");
      
 
     // Constructor
@@ -41,6 +42,10 @@ public class RegisterAccountPage {
     }
 
     // Actions
+    
+    public String getEmployeeCodeUniqueError() {
+    			return wait.until(ExpectedConditions.visibilityOfElementLocated(EMPLOYEE_CODE_UNIQUE_ERROR)).getText();
+    }
     
     public String getEmailAlreadyRegisteredError() {
     			return wait.until(ExpectedConditions.visibilityOfElementLocated(EMAIL_ALREADY_REGISTERED_ERROR)).getText();

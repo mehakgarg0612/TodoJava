@@ -1,12 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <suite name="ToDoLoginSuite">
   <test name="LoginTestCases">
+  
+ 
+    
     <classes>
-    	<!--<class name="testCases.LoginTest"/>> 
-      	<class name="testCases.DashboardTest"/>
-  			<class name="testCases.CreateTaskTest"/>-->
-      	<class name="testCases.TaskUpdateDetailsTest">
-      
-      	</class>
+      <class name="testCases.LoginTest"/>
+    
     </classes>
   </test>
 </suite>
