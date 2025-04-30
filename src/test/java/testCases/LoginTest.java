@@ -1,6 +1,7 @@
 package testCases;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pageObject.LoginPage;
@@ -12,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 
+@Listeners(testCases.Listener.class)
 public class LoginTest extends BaseTest {
 
 	//LoginPage lp;

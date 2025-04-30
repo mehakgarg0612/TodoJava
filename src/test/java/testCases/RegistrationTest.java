@@ -5,17 +5,25 @@ import java.time.Duration;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 
 import pageObject.LoginPage;
 import pageObject.RegisterAccountPage;
 import util.BaseTest;
+import util.ExtentReportListener;
 
+
+@Listeners(util.ExtentReportListener.class) 
 public class RegistrationTest extends BaseTest {
+	
 	
 	@Test(priority = 1)
 	public void validRegistrationTest() {
+		ExtentReportListener.getTest().info("Starting validRegistrationTest...");
 		System.out.println("Starting validRegistrationTest...");
 		RegisterAccountPage rp = new RegisterAccountPage(driver);
 		rp.clickRegisterAccount();
@@ -36,7 +44,7 @@ public class RegistrationTest extends BaseTest {
 	}
 	
 	@Test(priority = 2)
-	public void blamkFirstNameTest() {
+	public void blankFirstNameTest() {
 		System.out.println("Starting blankFirstNameTest...");
 		RegisterAccountPage rp = new RegisterAccountPage(driver);
 		rp.clickRegisterAccount();
