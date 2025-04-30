@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 
-@Listeners(testCases.Listener.class)
+@Listeners(util.Listener.class)
 public class LoginTest extends BaseTest {
 
 	//LoginPage lp;

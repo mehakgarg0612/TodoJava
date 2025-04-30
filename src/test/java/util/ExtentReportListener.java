@@ -6,6 +6,7 @@ import org.testng.ITestResult;
 
 import com.aventstack.extentreports.*;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class ExtentReportListener implements ITestListener {
     private static ExtentReports extent;
@@ -14,16 +15,22 @@ public class ExtentReportListener implements ITestListener {
     @Override
     public void onStart(ITestContext context) {
         // initialize the HtmlReporter
-  
-    	    ExtentSparkReporter sparkReporter = new ExtentSparkReporter("reports/RegistrationTestReport.html");
+    	    ExtentSparkReporter sparkReporter = new ExtentSparkReporter("reports/RegistrationTestReport.html");	    
     	    extent = new ExtentReports();
+    	    sparkReporter.config().setTheme(Theme.DARK); 
     	    extent.attachReporter(sparkReporter);
     	    extent.setSystemInfo("Suite Name", context.getSuite().getName());
+    	    extent.setSystemInfo("Tester Name", "Mehak Garg");
+    	    extent.setSystemInfo("Browser", "Chrome");
+    	    extent.setSystemInfo("OS", "Windows");
+     	    extent.setSystemInfo("TestNG Version", "7.4.0");
+    	    extent.setSystemInfo("ExtentReports Version", "5.0.9");   
     	}
-
+    
     @Override
     public void onTestStart(ITestResult result) {
         // create a test node in the report
+    	
         ExtentTest test = extent.createTest(result.getMethod().getMethodName());
         testThread.set(test);
     }
