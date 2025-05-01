@@ -1,5 +1,7 @@
 package util;
 
+import java.io.PrintStream;
+
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -58,6 +60,11 @@ public class ExtentReportListener implements ITestListener {
     public static ExtentTest getTest() {
         return testThread.get();
     }
+
+	public static PrintStream getExtent() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
     // You can leave other ITestListener methods empty if you don’t need them

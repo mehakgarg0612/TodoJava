@@ -16,6 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -38,7 +39,10 @@ public class BaseTest {
         config = new ReadConfig();
         logger = LogManager.getLogger(this.getClass());
 
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--headless"); // Uncomment this line to run in headless mode
+        driver = new ChromeDriver(options);
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.manage().window().maximize();
@@ -57,17 +61,22 @@ public class BaseTest {
 //    }
 
     @AfterMethod
-    public void tearDown(ITestResult result) {
-        if (result.getStatus() == ITestResult.FAILURE) {
+    public void tearDown() {
+       /* if (result.getStatus() == ITestResult.FAILURE) {
             String testName = result.getName(); // gets the method name
             ScreenshotUtil.takeScreenshot(driver, testName);
             logger.error("Test failed: " + testName + " — Screenshot captured.");
-        }
+        }*/
 
         driver.quit();
         logger.info("Browser closed");
     }
-    
+    @AfterSuite
+    public void afterSuite(ITestResult result) {
+		// Close the ExtentReports instance
+    ExtentReportListener.getExtent().flush();
+		
+	}
     
     public void login() {
         LoginPage lp = new LoginPage(driver);
@@ -80,23 +89,7 @@ public class BaseTest {
         System.out.println("Login successful.");
     }
     
-   
 
-    // Get current system date as start date
-    
-//    public static String getStartDate() {
-//        LocalDate today = LocalDate.now();
-//        return formatter.format(today);
-//    }
-
-    // Get due date by adding days from config
-    
-
-//    public String getDueDate() {
-//       int daysToAdd = Integer.parseInt(config.getDueDate());
-//        LocalDate dueDate = LocalDate.now().plusDays(daysToAdd);
-//        return formatter.format(dueDate);
-//    }
     public String getDueDate() {
        int daysToAdd = Integer.parseInt(config.getDueDate());
         LocalDate dueDate = LocalDate.now().plusDays(daysToAdd);

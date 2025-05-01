@@ -21,7 +21,7 @@ import util.ExtentReportListener;
 public class RegistrationTest extends BaseTest {
 	
 	
-	@Test(priority = 1)
+	@Test(groups = "regression")
 	public void validRegistrationTest() {
 		ExtentReportListener.getTest().info("Starting validRegistrationTest...");
 		System.out.println("Starting validRegistrationTest...");
@@ -43,7 +43,7 @@ public class RegistrationTest extends BaseTest {
 		
 	}
 	
-	@Test(priority = 2)
+	@Test(groups = "regression")
 	public void blankFirstNameTest() {
 		System.out.println("Starting blankFirstNameTest...");
 		RegisterAccountPage rp = new RegisterAccountPage(driver);
@@ -60,7 +60,7 @@ public class RegistrationTest extends BaseTest {
 		System.out.println("blankFirstNameTest completed.");
 		
 	}
-	@Test(priority = 3)
+	@Test(groups = "regression")
 	public void blankLastNameTest() {
 		System.out.println("Starting blankLastNameTest...");
 		RegisterAccountPage rp = new RegisterAccountPage(driver);
@@ -78,7 +78,7 @@ public class RegistrationTest extends BaseTest {
 		
 	}
 	
-	@Test(priority = 4)
+	@Test(groups = "regression")
 	public void blankEmailTest() {
 		System.out.println("Starting blankEmailTest...");
 		RegisterAccountPage rp = new RegisterAccountPage(driver);
@@ -96,7 +96,7 @@ public class RegistrationTest extends BaseTest {
 		
 	}
 	
-	@Test(priority = 5)
+	@Test(groups = "regression")
 	public void blankEmployeeCodeTest() {
 		System.out.println("Starting blankEmployeeCodeTest...");
 		RegisterAccountPage rp = new RegisterAccountPage(driver);
@@ -114,7 +114,7 @@ public class RegistrationTest extends BaseTest {
 		
 	}
 	
-	@Test(priority = 6)
+	@Test(groups = "regression")
 	public void blankPasswordTest() {
 		System.out.println("Starting blankPasswordTest...");
 		RegisterAccountPage rp = new RegisterAccountPage(driver);
@@ -133,7 +133,7 @@ public class RegistrationTest extends BaseTest {
 	}
 	
 		
-	@Test(priority = 7)
+	@Test(groups = "regression")
 	public void blankConfirmPasswordTest() {
 		System.out.println("Starting blankConfirmPasswordTest...");
 		RegisterAccountPage rp = new RegisterAccountPage(driver);
@@ -151,7 +151,7 @@ public class RegistrationTest extends BaseTest {
 		
 	}
 	
-	@Test(priority = 8)
+	@Test(groups = "regression")
 	public void passwordMismatchTest(){
 		System.out.println("Starting passwordMismatchTest...");
 		RegisterAccountPage rp = new RegisterAccountPage(driver);
@@ -169,7 +169,7 @@ public class RegistrationTest extends BaseTest {
 		
 	}
 	
-	@Test(priority = 9)
+	@Test(groups = "regression")
 	public void invalidEmailFormatTest() {
 		System.out.println("Starting invalidEmailFormatTest...");
 		RegisterAccountPage rp = new RegisterAccountPage(driver);
@@ -187,7 +187,7 @@ public class RegistrationTest extends BaseTest {
 		
 	}
 	
-	@Test(priority = 10)
+	@Test(groups = "regression")
 	public void emailAlreadyExistsTest() {
 		System.out.println("Starting emailAlreadyExistsTest...");
 		RegisterAccountPage rp = new RegisterAccountPage(driver);
@@ -205,7 +205,7 @@ public class RegistrationTest extends BaseTest {
 		
 	}
 	
-	@Test(priority = 11)
+	@Test(groups = "regression")
 	
 	public void TRCodeShouldBeUnique() {
 		System.out.println("Starting TRCodeShouldBeUnique...");

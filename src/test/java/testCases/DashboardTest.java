@@ -13,7 +13,7 @@ import util.BaseTest;
 @Listeners(util.ExtentReportListener.class) 
 public class DashboardTest extends BaseTest {
 	
-	@Test
+	@Test (groups = "regression")
 	public void verifyDashboardElements() {
 		
 		LoginPage lp = new LoginPage(driver);
@@ -39,6 +39,7 @@ public class DashboardTest extends BaseTest {
 		LogoutPage logout = new LogoutPage(driver);
 		logout.logout();
 	}
+	
 	
 
 }

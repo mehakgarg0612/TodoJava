@@ -91,7 +91,7 @@ public class TaskUpdateDetailsPage {
 		driver.findElement(UPDATE_TASK.apply(taskName)).click();
 	}
 	 
-	//reusuable method for alert message(ALERT_TASK_UPDATED_SUCCESSFULLY)
+	// Reusable method for alert message(ALERT_TASK_UPDATED_SUCCESSFULLY)
 	
 	public void enterUpdateTaskName(String UpdatedTaskName) {
 	WebElement UpdateTaskName =wait.until(ExpectedConditions.visibilityOfElementLocated(TASK_NAME_UPDATE));
@@ -101,9 +101,7 @@ public class TaskUpdateDetailsPage {
 	UpdateTaskName.sendKeys(Keys.DELETE);        
 	UpdateTaskName.sendKeys(UpdatedTaskName); 
     
-//	UpdateTaskName.clear();
-//	UpdateTaskName.click();
-//	UpdateTaskName.sendKeys(UpdatedTaskName);
+
     }
 		
 	public void enterUpdateTaskDescription(String UpdatedTaskDescription) {
@@ -113,10 +111,7 @@ public class TaskUpdateDetailsPage {
 	 UpdateDescription.sendKeys(Keys.CONTROL + "a"); 
 	 UpdateDescription.sendKeys(Keys.DELETE);        
 	 UpdateDescription.sendKeys(UpdatedTaskDescription); 
-    
-//	UpdateDescription.clear();
-//	UpdateDescription.click();
-//	UpdateDescription.sendKeys(UpdatedTaskDescription);
+ 
     }
 	
 	public void selectPriority(Priority priority) {
@@ -161,11 +156,7 @@ public class TaskUpdateDetailsPage {
 		wait.until(ExpectedConditions.elementToBeClickable(TASK_NAME)).click();
 	}
 	
-//	public void clickOnSlider() {
-//		wait.until(ExpectedConditions.elementToBeClickable(renderOnSlider)).click();
-//	}
 
-	
 	public WebElement getSlider() {
 	    return wait.until(ExpectedConditions.visibilityOfElementLocated(PROGRESS));
 	}
@@ -201,8 +192,6 @@ public class TaskUpdateDetailsPage {
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(ALERT_TASK_ON_HOLD)).getText();
 	}
 	
-	
-	
 	//Restart Task
 	
 	public void clickRestartThisTask() {
@@ -226,9 +215,6 @@ public class TaskUpdateDetailsPage {
 	}
 	
 	
-	
-	
-	
 	public void clickOnCancelButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(CANCEL)).click();
 	}
@@ -241,12 +227,6 @@ public class TaskUpdateDetailsPage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(ALERT_TASK_UPDATED_SUCCESSFULLY )).getText();
     }
 
-
-	
-//	public String getTaskOnHoldMessage() {
-//		return wait.until(ExpectedConditions.visibilityOfElementLocated(ALERT_TASK_ON_HOLD)).getText();
-//	}
-	
 	public String getErrorOfProgressDescription() {
 	     return wait.until(ExpectedConditions.visibilityOfElementLocated(ALERT_MESSAGE)).getText();
 	}
@@ -260,14 +240,7 @@ public class TaskUpdateDetailsPage {
 		return Integer.parseInt(progressValue);
 }
 	
-
-//	public String getTaskOnHoldSuccessfully() {
-//		return wait.until(ExpectedConditions.visibilityOfElementLocated(ALERT_TASK_CREATED_SUCCESSFULLY)).getText();
-//	}
-
-	
-	
-}
+ }
 	
 
 	

@@ -19,7 +19,7 @@ public class SortByPriorityTest extends BaseTest {
     }
 	
 	
-	@Test(priority = 1)
+	@Test(groups = "regression")
 	public void selectByHighPriority() throws InterruptedException {
 		
 		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
@@ -33,7 +33,7 @@ public class SortByPriorityTest extends BaseTest {
 	}
 	
 	//SELECT STATUS
-	@Test(priority = 2) // success of test case
+	@Test(groups = "regression") // success of test case
 	public void selectByStatusAll() {
 		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
 		sortPriority.clickOnProject();
@@ -46,7 +46,7 @@ public class SortByPriorityTest extends BaseTest {
 		
 	}
 	
-	@Test(priority = 3) // success of test case
+	@Test(groups = "regression") // success of test case
 	public void selectByOpenWIP_YTS()  {
 		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
 		sortPriority.clickOnProject();
@@ -58,7 +58,7 @@ public class SortByPriorityTest extends BaseTest {
 		
 	}
 	
-	@Test(priority = 4)// success of test case
+	@Test(groups = "regression")// success of test case
 	public void selectByPending() {
 		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
 		sortPriority.clickOnProject();
@@ -71,7 +71,7 @@ public class SortByPriorityTest extends BaseTest {
 	}
 	
 	
-	@Test(priority = 5)// success of test case
+	@Test(groups = "regression")// success of test case
 	public void selectByInProgress()  {
 		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
 		sortPriority.clickOnProject();
@@ -85,7 +85,7 @@ public class SortByPriorityTest extends BaseTest {
 		
 	}
 	
-	@Test(priority = 6)// success of test case
+	@Test(groups = "regression")// success of test case
 	public void selectByOnHold(){		
 		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
 		sortPriority.clickOnProject();
@@ -98,7 +98,7 @@ public class SortByPriorityTest extends BaseTest {
 	
 	
 	//TASKS ICON
-	@Test(priority = 7)
+	@Test(groups = "regression")
 	
 	public void sortByAllTasks() throws InterruptedException {
 		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);

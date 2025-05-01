@@ -8,8 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
-import pageObject.FinalLogoutPage;
+import pageObject.LogoutPage;
 import util.BaseTest;
 
 
@@ -22,11 +21,12 @@ public class LogoutTest extends BaseTest {
        login();  // calling login method from BaseTest
    }
 	
-	@Test(priority = 1)
+	@Test(groups = "regression") 
 	public void logoutTest() {
-		FinalLogoutPage lp = new FinalLogoutPage(driver);
-		lp.clickOnProfileMenu();
-		lp.clickOnLogoutButton();
+		LogoutPage lp = new LogoutPage(driver);
+		lp.logout();
+//		lp.clickOnProfileMenu();
+//		lp.clickOnLogoutButton();
 		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		boolean urlMatched = wait.until(ExpectedConditions.urlToBe("https://todolist.idsil.com/login"));
