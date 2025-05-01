@@ -13,6 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -39,7 +40,7 @@ public class BaseTest {
 
         driver = new ChromeDriver();
         driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.manage().window().maximize();
 
         System.out.println("URL is: " + config.getAppURL());
@@ -49,8 +50,20 @@ public class BaseTest {
     }
 
     
+//    @AfterMethod
+//    public void closeApp() {
+//        driver.quit();
+//        logger.info("Browser closed");
+//    }
+
     @AfterMethod
-    public void closeApp() {
+    public void tearDown(ITestResult result) {
+        if (result.getStatus() == ITestResult.FAILURE) {
+            String testName = result.getName(); // gets the method name
+            ScreenshotUtil.takeScreenshot(driver, testName);
+            logger.error("Test failed: " + testName + " — Screenshot captured.");
+        }
+
         driver.quit();
         logger.info("Browser closed");
     }

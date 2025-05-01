@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import enums.Priority;
@@ -17,6 +18,8 @@ import pageObject.TaskUpdateDetailsPage;
 import util.BaseTest;
 import utilities.SeleniumMethod;
 
+
+@Listeners(util.ExtentReportListener.class) 
 public class TaskUpdateDetailsTest extends BaseTest {
 
 	@BeforeMethod
@@ -70,7 +73,7 @@ public class TaskUpdateDetailsTest extends BaseTest {
      
         WebElement slider = taskDetails.getSlider();
         Actions act = new Actions(driver);
-        act.clickAndHold(slider).moveByOffset(30, 0).release().perform(); 
+        act.clickAndHold(slider).moveByOffset(40, 0).release().perform(); 
 
        
         taskDetails.enterTaskDescription(""); 
@@ -161,6 +164,90 @@ public class TaskUpdateDetailsTest extends BaseTest {
 	
 	
 	@Test(priority = 6)
+	
+	public void taskUpdateWithPenButton() {
+		
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		taskDetails.clickOnProject();
+		taskDetails.clickOnMyProjects();
+		taskDetails.clickOnDailyMeetingBox();	
+		taskDetails.clickOnSearchName(config.getSearchName());
+		//taskDetails.clickOnTaskName();
+		
+		taskDetails.clickOnUpdateTask("Mehaktesting"); //----  you need to hardcode the task name here -------
+		taskDetails.enterUpdateTaskName("Mehaktesting");
+		taskDetails.enterUpdateTaskDescription("Mehaktesting");
+		
+		 Priority priority = Priority.valueOf(config.getTaskPriority().toUpperCase());
+	      taskDetails.selectPriority(priority);
+	      
+		 System.out.println("low priority");
+		taskDetails.clickOnUpdate();
+		
+		Assert.assertEquals(taskDetails.getTaskUpdatedSuccessfully() ,"Task updated successfully");
+		System.out.println("Test case 7 : Validate Task updated successfully");
+		
+	}
+	
+	
+	@Test(priority = 7)
+	public void taskUpdateWithPenButtonWithoutTaskName() {
+		
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		taskDetails.clickOnProject();
+		taskDetails.clickOnMyProjects();
+		taskDetails.clickOnDailyMeetingBox();	
+		taskDetails.clickOnSearchName(config.getSearchName());
+		//taskDetails.clickOnTaskName();
+		
+		taskDetails.clickOnUpdateTask("Mehaktesting"); // Hardcore
+		taskDetails.enterUpdateTaskName("");
+		taskDetails.enterUpdateTaskDescription("Mehaktesting");
+		
+		 Priority priority = Priority.valueOf(config.getTaskPriority().toUpperCase());
+	      taskDetails.selectPriority(priority);
+	      
+		 System.out.println("low priority");
+		taskDetails.clickOnUpdate();
+		
+		Assert.assertEquals(taskDetails.getTaskNameError(), "Please enter the Task name");
+		System.out.println("Test case 9 : Validate Task updated successfully");
+		
+	}
+	
+	@Test(priority = 8)
+	public void taskUpdateWithPenButtonWithoutTaskDescription() {
+		
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		taskDetails.clickOnProject();
+		taskDetails.clickOnMyProjects();
+		taskDetails.clickOnDailyMeetingBox();	
+		taskDetails.clickOnSearchName(config.getSearchName());
+		//taskDetails.clickOnTaskName();
+		
+		taskDetails.clickOnUpdateTask("Mehaktesting");
+		taskDetails.enterUpdateTaskName("Mehaktesting");
+		taskDetails.enterUpdateTaskDescription("");
+		
+		 Priority priority = Priority.valueOf(config.getTaskPriority().toUpperCase());
+	      taskDetails.selectPriority(priority);
+	      
+		 System.out.println("low priority");
+		taskDetails.clickOnUpdate();
+		
+		Assert.assertEquals(taskDetails.getTaskDescriptionError(), "Please enter the Task description");
+		System.out.println("Test case 8 : Validate Task updated successfully");
+		
+	}
+	
+	
+	@Test(priority = 9)
 	public void deleteTask() {
 		SeleniumMethod seleniumMethod = new SeleniumMethod(driver);
 		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
@@ -175,89 +262,6 @@ public class TaskUpdateDetailsTest extends BaseTest {
 		
 		Assert.assertEquals(taskDetails.getTaskDeletedSuccessfully() ,"Task deleted successfully");
 		System.out.println("Test case 6 : Validate Task deleted successfully");
-		
-	}
-	
-	@Test(priority = 7)
-	
-	public void taskUpdateWithPenButton() {
-		
-		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		
-		taskDetails.clickOnProject();
-		taskDetails.clickOnMyProjects();
-		taskDetails.clickOnDailyMeetingBox();	
-		taskDetails.clickOnSearchName(config.getSearchName());
-		//taskDetails.clickOnTaskName();
-		
-		taskDetails.clickOnUpdateTask("Mehaktesting"); //----  you need to hardcode the task name here -------
-		taskDetails.enterUpdateTaskName("Progress");
-		taskDetails.enterUpdateTaskDescription("Progress");
-		
-		 Priority priority = Priority.valueOf(config.getTaskPriority().toUpperCase());
-	      taskDetails.selectPriority(priority);
-	      
-		 System.out.println("low priority");
-		taskDetails.clickOnUpdate();
-		
-		Assert.assertEquals(taskDetails.getTaskUpdatedSuccessfully() ,"Task updated successfully");
-		System.out.println("Test case 7 : Validate Task updated successfully");
-		
-	}
-	
-	
-	@Test(priority = 8)
-	public void taskUpdateWithPenButtonWithoutTaskName() {
-		
-		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		
-		taskDetails.clickOnProject();
-		taskDetails.clickOnMyProjects();
-		taskDetails.clickOnDailyMeetingBox();	
-		taskDetails.clickOnSearchName(config.getSearchName());
-		//taskDetails.clickOnTaskName();
-		
-		taskDetails.clickOnUpdateTask("Progress");
-		taskDetails.enterUpdateTaskName("");
-		taskDetails.enterUpdateTaskDescription("Progress");
-		
-		 Priority priority = Priority.valueOf(config.getTaskPriority().toUpperCase());
-	      taskDetails.selectPriority(priority);
-	      
-		 System.out.println("low priority");
-		taskDetails.clickOnUpdate();
-		
-		Assert.assertEquals(taskDetails.getTaskNameError(), "Please enter the Task name");
-		System.out.println("Test case 9 : Validate Task updated successfully");
-		
-	}
-	
-	@Test(priority = 9)
-	public void taskUpdateWithPenButtonWithoutTaskDescription() {
-		
-		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		
-		taskDetails.clickOnProject();
-		taskDetails.clickOnMyProjects();
-		taskDetails.clickOnDailyMeetingBox();	
-		taskDetails.clickOnSearchName(config.getSearchName());
-		//taskDetails.clickOnTaskName();
-		
-		taskDetails.clickOnUpdateTask("Progress");
-		taskDetails.enterUpdateTaskName("Progress");
-		taskDetails.enterUpdateTaskDescription("");
-		
-		 Priority priority = Priority.valueOf(config.getTaskPriority().toUpperCase());
-	      taskDetails.selectPriority(priority);
-	      
-		 System.out.println("low priority");
-		taskDetails.clickOnUpdate();
-		
-		Assert.assertEquals(taskDetails.getTaskDescriptionError(), "Please enter the Task description");
-		System.out.println("Test case 8 : Validate Task updated successfully");
 		
 	}
 	

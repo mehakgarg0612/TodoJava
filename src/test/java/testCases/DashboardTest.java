@@ -1,6 +1,7 @@
 package testCases;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pageObject.DashboardPage;
@@ -8,6 +9,8 @@ import pageObject.LoginPage;
 import pageObject.LogoutPage;
 import util.BaseTest;
 
+
+@Listeners(util.ExtentReportListener.class) 
 public class DashboardTest extends BaseTest {
 	
 	@Test

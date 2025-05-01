@@ -115,6 +115,10 @@ public class ReadConfig {
 			return prop.getProperty("empCodeReg");
 		}
 		
+		public String getAlreadyRegisteredEmpCode() {
+			return prop.getProperty("empCodeRegAlreadyReg");
+		}
+		
 		public String getRegPassword() {
 		return prop.getProperty("passwordReg");
 	}

@@ -22,7 +22,7 @@ public class TaskUpdateDetailsPage {
 	By MY_PROJECTS = By.xpath("//span[text()='My Projects']");
 	By QA_SCRUM_MEETING = By.xpath("//div[@class='cursor-pointer']");
 	By SEARCH_NAME= By.xpath("//input[@placeholder='Search by Assigned To']");
-	By TASK_NAME = By.xpath("//span[text()='Testing3']"); //task name
+	By TASK_NAME = By.xpath("//span[text()='Mehaktesting']"); //task name
 	By PROGRESS = By.xpath("//div[@role='slider']");
 	By PROGRESS_DESCRIPTION = By.xpath("//div//textarea[@class='ant-input css-txh9fw']");
 	

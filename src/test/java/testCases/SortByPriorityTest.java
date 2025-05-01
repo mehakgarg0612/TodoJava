@@ -1,12 +1,15 @@
 package testCases;
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pageObject.LoginPage;
 import pageObject.SortByPriorityPage;
 import util.BaseTest;
 
+
+@Listeners(util.ExtentReportListener.class) 
 public class SortByPriorityTest extends BaseTest {
 	
 	@BeforeMethod

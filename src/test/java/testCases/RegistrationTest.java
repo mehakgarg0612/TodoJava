@@ -214,7 +214,7 @@ public class RegistrationTest extends BaseTest {
 		rp.enterFirstName(config.getRegFirstName());
 		rp.enterLastName(config.getRegLastName());
 		rp.enterEmail(config.getRegEmail());
-		rp.enterEmployeeCode(config.getRegEmployeeCode());
+		rp.enterEmployeeCode(config.getAlreadyRegisteredEmpCode());
 		rp.enterPassword(config.getRegPassword());
 		rp.enterConfirmPassword(config.getRegConfirmPassword());
 		rp.clickSubmit();
