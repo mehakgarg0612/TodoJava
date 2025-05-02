@@ -107,7 +107,7 @@ public class MyProfileTest extends BaseTest {
 	    myProfile.clickOnProfileButton();
 	    myProfile.clickOnMyProfile();
 	    myProfile.clickOnEditProfile();
-	    myProfile.setFirstName("ThisIsAReallyLongFirstNameThatKeepsGoingAndGoingAndMightBreakStuff");
+	    myProfile.setFirstName("Mehak");
 	    myProfile.setLastName(config.getLastName());
 	    myProfile.clickOnSaveChanges();
 

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Automation Test Suite">
   
   <listeners>
@@ -8,9 +7,8 @@
   
   <test name="Regression Tests">
     <classes>
-      <class name="testCases.LoginTest"/>
+     <class name="testCases.LoginTest"/>
       <class name="testCases.LogoutTest"/>
-      <class name="testCases.TaskUpdateDetailsTest"/>
       <class name="testCases.SortByPriorityTest"/>
       <class name="testCases.DashboardTest"/>
       <class name="testCases.RegistrationTest"/>

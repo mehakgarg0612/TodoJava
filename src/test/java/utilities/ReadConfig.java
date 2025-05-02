@@ -111,6 +111,10 @@ public class ReadConfig {
 		
 	}
 		
+		public String getAlreadyRegisteredEmail() {
+			return prop.getProperty("alreadyRegEmail");
+		}
+		
 		public String getRegEmployeeCode() {
 			return prop.getProperty("empCodeReg");
 		}
@@ -131,6 +135,8 @@ public class ReadConfig {
 		public String getAppRegURL() {
 	        return prop.getProperty("appUrlReg");
 	    }
+		
+		
 
 		
 	

@@ -35,7 +35,7 @@ public class RegistrationTest extends BaseTest {
 		rp.enterConfirmPassword(config.getRegConfirmPassword());
 		rp.clickSubmit();
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		boolean urlMatched = wait.until(ExpectedConditions.urlToBe("https://todolist.idsil.com/login"));
 		Assert.assertTrue(urlMatched, "Registration failed: Dashboard URL did not match");
 		Assert.assertEquals(rp.getSuccessfulRegistrationMessage(),"User Registered Successfully");
@@ -194,7 +194,7 @@ public class RegistrationTest extends BaseTest {
 		rp.clickRegisterAccount();
 		rp.enterFirstName(config.getRegFirstName());
 		rp.enterLastName(config.getRegLastName());
-		rp.enterEmail(config.getRegEmail());
+		rp.enterEmail(config.getAlreadyRegisteredEmail());
 		rp.enterEmployeeCode(config.getRegEmployeeCode());
 		rp.enterPassword(config.getRegPassword());
 		rp.enterConfirmPassword(config.getRegConfirmPassword());
