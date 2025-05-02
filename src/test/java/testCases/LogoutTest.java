@@ -15,20 +15,20 @@ import util.BaseTest;
 @Listeners(util.ExtentReportListener.class) 
 public class LogoutTest extends BaseTest {
 	
-	@BeforeMethod
-	public void loginBeforeEachTest() {
-		 System.out.println("---- Running loginBeforeEachTest ----");
-       login();  // calling login method from BaseTest
-   }
+	  @BeforeMethod public void loginBeforeEachTest() {
+	 System.out.println("---- Running loginBeforeEachTest ----"); 
+	  login();
+	  }  //calling login method from BaseTest 
+	 
 	
-	@Test(groups = "regression") 
+	@Test(groups = "regression", priority = 1)
 	public void logoutTest() {
-		LogoutPage lp = new LogoutPage(driver);
+		LogoutPage lp = new LogoutPage(getDriver());
 		lp.logout();
 //		lp.clickOnProfileMenu();
 //		lp.clickOnLogoutButton();
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 		boolean urlMatched = wait.until(ExpectedConditions.urlToBe("https://todolist.idsil.com/login"));
 		Assert.assertTrue(urlMatched, "Logout failed: Logout did not match");
 		System.out.println("Logoutsuccessful!");

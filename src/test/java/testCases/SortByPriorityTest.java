@@ -12,17 +12,16 @@ import util.BaseTest;
 @Listeners(util.ExtentReportListener.class) 
 public class SortByPriorityTest extends BaseTest {
 	
-	@BeforeMethod
-    public void loginBeforeEachTest() {
-		 System.out.println("---- Running loginBeforeEachTest ----");
-        login();  // calling login method from BaseTest
-    }
+	 @BeforeMethod public void loginBeforeEachTest() {
+		 System.out.println("---- Running loginBeforeEachTest ----"); 
+		  login();
+		  }  //calling login method from BaseTest 
+
 	
-	
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 1)
 	public void selectByHighPriority() throws InterruptedException {
 		
-		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
+		SortByPriorityPage sortPriority = new SortByPriorityPage(getDriver());
 		sortPriority.clickOnProject();
 		sortPriority.clickOnMyProjects();
 		sortPriority.clickOnDailyMeetingBox();
@@ -33,9 +32,9 @@ public class SortByPriorityTest extends BaseTest {
 	}
 	
 	//SELECT STATUS
-	@Test(groups = "regression") // success of test case
+	@Test(groups = "regression", priority = 2) // success of test case
 	public void selectByStatusAll() {
-		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
+		SortByPriorityPage sortPriority = new SortByPriorityPage(getDriver());
 		sortPriority.clickOnProject();
 		sortPriority.clickOnMyProjects();
 		sortPriority.clickOnDailyMeetingBox();
@@ -46,9 +45,9 @@ public class SortByPriorityTest extends BaseTest {
 		
 	}
 	
-	@Test(groups = "regression") // success of test case
+	@Test(groups = "regression", priority = 3) // success of test case
 	public void selectByOpenWIP_YTS()  {
-		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
+		SortByPriorityPage sortPriority = new SortByPriorityPage(getDriver());
 		sortPriority.clickOnProject();
 		sortPriority.clickOnMyProjects();
 		sortPriority.clickOnDailyMeetingBox();
@@ -58,9 +57,9 @@ public class SortByPriorityTest extends BaseTest {
 		
 	}
 	
-	@Test(groups = "regression")// success of test case
+	@Test(groups = "regression", priority = 4)// success of test case
 	public void selectByPending() {
-		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
+		SortByPriorityPage sortPriority = new SortByPriorityPage(getDriver());
 		sortPriority.clickOnProject();
 		sortPriority.clickOnMyProjects();
 		sortPriority.clickOnDailyMeetingBox();
@@ -71,9 +70,9 @@ public class SortByPriorityTest extends BaseTest {
 	}
 	
 	
-	@Test(groups = "regression")// success of test case
+	@Test(groups = "regression", priority = 5)// success of test case
 	public void selectByInProgress()  {
-		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
+		SortByPriorityPage sortPriority = new SortByPriorityPage(getDriver());
 		sortPriority.clickOnProject();
 		sortPriority.clickOnMyProjects();
 		sortPriority.clickOnDailyMeetingBox();
@@ -85,9 +84,9 @@ public class SortByPriorityTest extends BaseTest {
 		
 	}
 	
-	@Test(groups = "regression")// success of test case
+	@Test(groups = "regression", priority = 6)// success of test case
 	public void selectByOnHold(){		
-		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
+		SortByPriorityPage sortPriority = new SortByPriorityPage(getDriver());
 		sortPriority.clickOnProject();
 		sortPriority.clickOnMyProjects();
 		sortPriority.clickOnDailyMeetingBox();
@@ -98,10 +97,10 @@ public class SortByPriorityTest extends BaseTest {
 	
 	
 	//TASKS ICON
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 7)
 	
 	public void sortByAllTasks() throws InterruptedException {
-		SortByPriorityPage sortPriority = new SortByPriorityPage(driver);
+		SortByPriorityPage sortPriority = new SortByPriorityPage(getDriver());
 		sortPriority.clickOnProject();
 		sortPriority.clickOnMyProjects();
 		sortPriority.clickOnDailyMeetingBox();

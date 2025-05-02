@@ -15,7 +15,7 @@ public class LoginPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    private final By emailField = By.id("email");
+    private final By emailField = By.xpath("//input[@placeholder='Email']");
     private final By passwordField = By.id("password");
     private final By loginButton = By.xpath("//button[@type='submit']");
 

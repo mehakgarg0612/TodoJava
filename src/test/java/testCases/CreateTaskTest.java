@@ -18,20 +18,19 @@ import util.BaseTest;
 @Listeners(util.ExtentReportListener.class) 
 public class CreateTaskTest extends BaseTest {
 	
-	@BeforeMethod
-    public void loginBeforeEachTest() {
-		 System.out.println("---- Running loginBeforeEachTest ----");
-        login();  // calling login method from BaseTest
-    }
+	/*
+	 * @BeforeMethod public void loginBeforeEachTest() {
+	 * System.out.println("---- Running loginBeforeEachTest ----"); login(); //
+	 * calling login method from BaseTest }
+	 */
 	
-	
-	@Test(priority = 1)
+	@Test(groups = "regression", priority = 1)
 	 public void createTaskWithValidData() {
 		
 		 System.out.println("---- Starting createTaskWithValidData ----");
 
 		
-		 CreateTaskPage taskPage = new CreateTaskPage(driver);
+		 CreateTaskPage taskPage = new CreateTaskPage(getDriver());
 		 
 		 taskPage.clickOnProject();
 		 taskPage.clickOnMyProjects();
@@ -73,7 +72,7 @@ public class CreateTaskTest extends BaseTest {
 		taskPage.clickCreate();
 		 System.out.println("Clicked on Create button");
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 		boolean UrlMatched = wait.until(ExpectedConditions.urlToBe("https://todolist.idsil.com/activeproject"));
 		Assert.assertTrue(UrlMatched, "Task was not created successfully");
 		

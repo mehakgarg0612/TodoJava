@@ -197,4 +197,6 @@ public class SeleniumMethod {
         WebElement element = waitForVisibility(locator);
         element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
     }
+    
+   
 }

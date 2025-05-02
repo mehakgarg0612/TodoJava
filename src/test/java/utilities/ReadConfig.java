@@ -5,7 +5,7 @@ import java.util.Properties;
 
 public class ReadConfig {
     Properties prop;
-
+    int no=(int)Math.random();
     public ReadConfig() {
         try {
             FileInputStream fis = new FileInputStream("src/test/resources/config.properties");
@@ -109,8 +109,11 @@ public class ReadConfig {
 		public String getRegEmail() {
 		return prop.getProperty("emailIdReg");
 		
-	}
-		
+		}
+		public String getRegEmailtrCode() {
+			return prop.getProperty("uniqueTREmail");
+			
+			}
 		public String getAlreadyRegisteredEmail() {
 			return prop.getProperty("alreadyRegEmail");
 		}

@@ -18,28 +18,28 @@ public class LoginTest extends BaseTest {
 
 	//LoginPage lp;
 	
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 1)
 	public void validLoginTest() {
 		System.out.println("Starting validLoginTest...");
-		LoginPage lp = new LoginPage(driver);
+		LoginPage lp = new LoginPage(getDriver());
 		lp.setEmail(config.getEmail());
 		lp.setPassword(config.getPassword());
 		lp.clickLogin();
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 		boolean urlMatched = wait.until(ExpectedConditions.urlToBe("https://todolist.idsil.com/dashboard"));
 		Assert.assertTrue(urlMatched, "Login failed: Dashboard URL did not match");
 		System.out.println("Login successful!");
 
-		LogoutPage logout = new LogoutPage(driver);
+		LogoutPage logout = new LogoutPage(getDriver());
 		logout.logout();
 		System.out.println("validLoginTest completed.");
 	}
 
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 2)
 	public void blankEmailAndPasswordTest() {
 		System.out.println("Starting blankEmailAndPasswordTest...");
-		LoginPage lp = new LoginPage(driver);
+		LoginPage lp = new LoginPage(getDriver());
 		lp.setEmail("");
 		lp.setPassword("");
 		lp.clickLogin();
@@ -49,10 +49,10 @@ public class LoginTest extends BaseTest {
 		System.out.println("blankEmailAndPasswordTest completed.");
 	}
 
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 3)
 	public void blankEmailTest() {
 		System.out.println("Starting blankEmailTest...");
-		LoginPage lp = new LoginPage(driver);
+		LoginPage lp = new LoginPage(getDriver());
 		lp.setEmail("");
 		lp.setPassword(config.getPassword());
 		lp.clickLogin();
@@ -61,10 +61,10 @@ public class LoginTest extends BaseTest {
 		System.out.println("blankEmailTest completed.");
 	}
 
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 4)
 	public void blankPasswordTest() {
 		System.out.println("Starting blankPasswordTest...");
-		LoginPage lp = new LoginPage(driver);
+		LoginPage lp = new LoginPage(getDriver());
 		lp.setEmail(config.getEmail());
 		lp.setPassword("");
 		lp.clickLogin();
@@ -72,10 +72,10 @@ public class LoginTest extends BaseTest {
 		System.out.println("blankPasswordTest completed.");
 	}
 
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 5)
 	public void invalidEmailFormatTest() {
 		System.out.println("Starting invalidEmailFormatTest...");
-		LoginPage lp = new LoginPage(driver);
+		LoginPage lp = new LoginPage(getDriver());
 		lp.setEmail("mehakgarg.idsil.com");
 		lp.setPassword(config.getPassword());
 		lp.clickLogin();
@@ -84,10 +84,10 @@ public class LoginTest extends BaseTest {
 		System.out.println("invalidEmailFormatTest completed.");
 	}
 
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 6)
 	public void userNotExistTest() {
 		System.out.println("Starting userNotExistTest...");
-		LoginPage lp = new LoginPage(driver);
+		LoginPage lp = new LoginPage(getDriver());
 		lp.setEmail("mehakgarg2@idsil.com");
 		lp.setPassword(config.getPassword());
 		lp.clickLogin();
@@ -96,10 +96,10 @@ public class LoginTest extends BaseTest {
 		System.out.println("userNotExistTest completed.");
 	}
 
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 7)
 	public void wrongPasswordTest() {
 		System.out.println("Starting wrongPasswordTest...");
-		LoginPage lp = new LoginPage(driver);
+		LoginPage lp = new LoginPage(getDriver());
 		lp.setEmail(config.getEmail());
 		lp.setPassword("mehak");
 		lp.clickLogin();

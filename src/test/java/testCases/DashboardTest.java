@@ -1,6 +1,7 @@
 package testCases;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -9,37 +10,37 @@ import pageObject.LoginPage;
 import pageObject.LogoutPage;
 import util.BaseTest;
 
-
-@Listeners(util.ExtentReportListener.class) 
+@Listeners(util.ExtentReportListener.class)
 public class DashboardTest extends BaseTest {
 	
-	@Test (groups = "regression")
-	public void verifyDashboardElements() {
-		
-		LoginPage lp = new LoginPage(driver);
-		lp.setEmail(config.getEmail());
-		lp.setPassword(config.getPassword());
-		lp.clickLogin();
-		
-		DashboardPage dp = new DashboardPage(driver);
-		String greeting = dp.getGreetingMessage();
-		Assert.assertTrue(greeting.contains("Hello"), "Greeting message not found");
-		
-		String taskCount = dp.getTaskCount();
-		Assert.assertFalse(taskCount.isEmpty() , "Task count is empty");
-		
-		String projectCount = dp.getProjectCount();
-		Assert.assertFalse(projectCount.isEmpty() ,"Project count is empty");
-		
-		Assert.assertTrue(dp.isCompletedTasksVisible(), "Completed task chart is not visible");
-		Assert.assertTrue(dp.isProgessTaskbarVisible(), "Progess task chart is not visible");
-		Assert.assertTrue(dp.isPendingTaskbarVisible(), "Pending task chart is not visible");
-		
+	  @BeforeMethod public void loginBeforeEachTest() {
+			 System.out.println("---- Running loginBeforeEachTest ----"); 
+			  login(); } 
 
-		LogoutPage logout = new LogoutPage(driver);
-		logout.logout();
-	}
-	
-	
+	@Test(groups = "regression", priority = 1)
+    public void verifyDashboardElements() {
 
+        // Use getDriver() instead of direct driver
+        LoginPage lp = new LoginPage(getDriver());
+        lp.setEmail(config.getEmail());
+        lp.setPassword(config.getPassword());
+        lp.clickLogin();
+
+        DashboardPage dp = new DashboardPage(getDriver());
+        String greeting = dp.getGreetingMessage();
+        Assert.assertTrue(greeting.contains("Hello"), "Greeting message not found");
+
+        String taskCount = dp.getTaskCount();
+        Assert.assertFalse(taskCount.isEmpty(), "Task count is empty");
+
+        String projectCount = dp.getProjectCount();
+        Assert.assertFalse(projectCount.isEmpty(), "Project count is empty");
+
+        Assert.assertTrue(dp.isCompletedTasksVisible(), "Completed task chart is not visible");
+        Assert.assertTrue(dp.isProgessTaskbarVisible(), "Progress task chart is not visible");
+        Assert.assertTrue(dp.isPendingTaskbarVisible(), "Pending task chart is not visible");
+
+        LogoutPage logout = new LogoutPage(getDriver());
+        logout.logout();
+    }
 }

@@ -11,6 +11,8 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
+import dev.failsafe.internal.util.Maths;
+import pageObject.DashboardPage;
 import pageObject.LoginPage;
 import pageObject.RegisterAccountPage;
 import util.BaseTest;
@@ -21,11 +23,12 @@ import util.ExtentReportListener;
 public class RegistrationTest extends BaseTest {
 	
 	
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 1)
 	public void validRegistrationTest() {
 		ExtentReportListener.getTest().info("Starting validRegistrationTest...");
 		System.out.println("Starting validRegistrationTest...");
-		RegisterAccountPage rp = new RegisterAccountPage(driver);
+		RegisterAccountPage rp = new RegisterAccountPage(getDriver());
+		DashboardPage dp = new DashboardPage(getDriver());
 		rp.clickRegisterAccount();
 		rp.enterFirstName(config.getRegFirstName());
 		rp.enterLastName(config.getRegLastName());
@@ -35,18 +38,26 @@ public class RegistrationTest extends BaseTest {
 		rp.enterConfirmPassword(config.getRegConfirmPassword());
 		rp.clickSubmit();
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
 		boolean urlMatched = wait.until(ExpectedConditions.urlToBe("https://todolist.idsil.com/login"));
+		LoginPage lp = new LoginPage(getDriver());
+		lp.setEmail(config.getRegEmail());
+		lp.setPassword(config.getRegPassword());
+		lp.clickLogin();
+		
+		
+		dp.isdashboardBtnVisible();
 		Assert.assertTrue(urlMatched, "Registration failed: Dashboard URL did not match");
 		Assert.assertEquals(rp.getSuccessfulRegistrationMessage(),"User Registered Successfully");
 		System.out.println("Registration successful!");
 		
 	}
 	
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 2)
 	public void blankFirstNameTest() {
 		System.out.println("Starting blankFirstNameTest...");
-		RegisterAccountPage rp = new RegisterAccountPage(driver);
+		RegisterAccountPage rp = new RegisterAccountPage(getDriver());
 		rp.clickRegisterAccount();
 		rp.enterFirstName("");
 		rp.enterLastName(config.getRegLastName());
@@ -60,10 +71,10 @@ public class RegistrationTest extends BaseTest {
 		System.out.println("blankFirstNameTest completed.");
 		
 	}
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 3)
 	public void blankLastNameTest() {
 		System.out.println("Starting blankLastNameTest...");
-		RegisterAccountPage rp = new RegisterAccountPage(driver);
+		RegisterAccountPage rp = new RegisterAccountPage(getDriver());
 		rp.clickRegisterAccount();
 		rp.enterFirstName(config.getRegFirstName());
 		rp.enterLastName("");
@@ -78,10 +89,10 @@ public class RegistrationTest extends BaseTest {
 		
 	}
 	
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 4)
 	public void blankEmailTest() {
 		System.out.println("Starting blankEmailTest...");
-		RegisterAccountPage rp = new RegisterAccountPage(driver);
+		RegisterAccountPage rp = new RegisterAccountPage(getDriver());
 		rp.clickRegisterAccount();
 		rp.enterFirstName(config.getRegFirstName());
 		rp.enterLastName(config.getRegLastName());
@@ -96,10 +107,10 @@ public class RegistrationTest extends BaseTest {
 		
 	}
 	
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 5)
 	public void blankEmployeeCodeTest() {
 		System.out.println("Starting blankEmployeeCodeTest...");
-		RegisterAccountPage rp = new RegisterAccountPage(driver);
+		RegisterAccountPage rp = new RegisterAccountPage(getDriver());
 		rp.clickRegisterAccount();
 		rp.enterFirstName(config.getRegFirstName());
 		rp.enterLastName(config.getRegLastName());
@@ -114,10 +125,10 @@ public class RegistrationTest extends BaseTest {
 		
 	}
 	
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 6)
 	public void blankPasswordTest() {
 		System.out.println("Starting blankPasswordTest...");
-		RegisterAccountPage rp = new RegisterAccountPage(driver);
+		RegisterAccountPage rp = new RegisterAccountPage(getDriver());
 		rp.clickRegisterAccount();
 		rp.enterFirstName(config.getRegFirstName());
 		rp.enterLastName(config.getRegLastName());
@@ -133,10 +144,10 @@ public class RegistrationTest extends BaseTest {
 	}
 	
 		
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 7)
 	public void blankConfirmPasswordTest() {
 		System.out.println("Starting blankConfirmPasswordTest...");
-		RegisterAccountPage rp = new RegisterAccountPage(driver);
+		RegisterAccountPage rp = new RegisterAccountPage(getDriver());
 		rp.clickRegisterAccount();
 		rp.enterFirstName(config.getRegFirstName());
 		rp.enterLastName(config.getRegLastName());
@@ -151,10 +162,10 @@ public class RegistrationTest extends BaseTest {
 		
 	}
 	
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 8)
 	public void passwordMismatchTest(){
 		System.out.println("Starting passwordMismatchTest...");
-		RegisterAccountPage rp = new RegisterAccountPage(driver);
+		RegisterAccountPage rp = new RegisterAccountPage(getDriver());
 		rp.clickRegisterAccount();
 		rp.enterFirstName(config.getRegFirstName());
 		rp.enterLastName(config.getRegLastName());
@@ -169,10 +180,10 @@ public class RegistrationTest extends BaseTest {
 		
 	}
 	
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 9)
 	public void invalidEmailFormatTest() {
 		System.out.println("Starting invalidEmailFormatTest...");
-		RegisterAccountPage rp = new RegisterAccountPage(driver);
+		RegisterAccountPage rp = new RegisterAccountPage(getDriver());
 		rp.clickRegisterAccount();
 		rp.enterFirstName(config.getRegFirstName());
 		rp.enterLastName(config.getRegLastName());
@@ -187,10 +198,10 @@ public class RegistrationTest extends BaseTest {
 		
 	}
 	
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 10)
 	public void emailAlreadyExistsTest() {
 		System.out.println("Starting emailAlreadyExistsTest...");
-		RegisterAccountPage rp = new RegisterAccountPage(driver);
+		RegisterAccountPage rp = new RegisterAccountPage(getDriver());
 		rp.clickRegisterAccount();
 		rp.enterFirstName(config.getRegFirstName());
 		rp.enterLastName(config.getRegLastName());
@@ -205,20 +216,22 @@ public class RegistrationTest extends BaseTest {
 		
 	}
 	
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 11)
 	
 	public void TRCodeShouldBeUnique() {
 		System.out.println("Starting TRCodeShouldBeUnique...");
-		RegisterAccountPage rp = new RegisterAccountPage(driver);
+		RegisterAccountPage rp = new RegisterAccountPage(getDriver());
 		rp.clickRegisterAccount();
 		rp.enterFirstName(config.getRegFirstName());
 		rp.enterLastName(config.getRegLastName());
-		rp.enterEmail(config.getRegEmail());
+		String randomPrefix = "Test" + (int)(Math.random() * 1000); // e.g., Math427
+		String email = randomPrefix + "." + config.getRegEmailtrCode();
+		rp.enterEmail(email);
 		rp.enterEmployeeCode(config.getAlreadyRegisteredEmpCode());
 		rp.enterPassword(config.getRegPassword());
 		rp.enterConfirmPassword(config.getRegConfirmPassword());
 		rp.clickSubmit();
-		
+		System.out.println(rp.getEmployeeCodeUniqueError());
 		Assert.assertEquals(rp.getEmployeeCodeUniqueError(), "Employee code should be unique");
 		System.out.println("TRCodeShouldBeUnique completed.");
 		

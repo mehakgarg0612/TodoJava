@@ -33,6 +33,7 @@ public class RegisterAccountPage {
     private final By INVALID_EMAIL_FORMAT_ERROR = By.xpath("//div[text()='Invalid email format']");
     private final By EMAIL_ALREADY_REGISTERED_ERROR = By.xpath("//div[@class='ant-message-custom-content ant-message-error']//span[2]");
     private final By EMPLOYEE_CODE_UNIQUE_ERROR = By.xpath("//div[@class='ant-message-custom-content ant-message-error']//span[2]");
+    private final By LOGINBUTTON = By.xpath("//button[@type='submit']");
      
 
     // Constructor
@@ -42,6 +43,10 @@ public class RegisterAccountPage {
     }
 
     // Actions
+    
+    public void clickonLoginButton() {
+    			wait.until(ExpectedConditions.elementToBeClickable(LOGINBUTTON)).click();
+    }
     
     public String getEmployeeCodeUniqueError() {
     			return wait.until(ExpectedConditions.visibilityOfElementLocated(EMPLOYEE_CODE_UNIQUE_ERROR)).getText();

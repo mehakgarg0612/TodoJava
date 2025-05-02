@@ -22,6 +22,8 @@ public class DashboardPage  {
 	    By completedTaskBar = By.xpath("//*[name()='tspan' and text()='Completed']");
 	    By progessTaskBar = By.xpath("//*[name()='tspan' and text()='In Progress']");
 	    By pendingTaskBar = By.xpath("//*[name()='tspan' and text()='Pending']");
+	    By dashboardBtn = By.xpath("//span[text()='Dashboard']");	    
+	  
 	    
 	    //[@class='ant-dropdown-menu-item ant-dropdown-menu-item-only-child' and//contains(@class,'ri-logout-circle-line')]] 
 	    
@@ -60,5 +62,10 @@ public class DashboardPage  {
 	    public boolean isPendingTaskbarVisible() {
 	    	return wait.until(ExpectedConditions.visibilityOfElementLocated(pendingTaskBar)).isDisplayed();
 	    }
+	    
+	    public boolean isdashboardBtnVisible() {
+	    	return wait.until(ExpectedConditions.visibilityOfElementLocated(dashboardBtn)).isDisplayed();
+	    }
+	    
 
 }

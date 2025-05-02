@@ -22,17 +22,17 @@ import utilities.SeleniumMethod;
 @Listeners(util.ExtentReportListener.class) 
 public class TaskUpdateDetailsTest extends BaseTest {
 
-	@BeforeMethod
-	 public void loginBeforeEachTest() {
-		 System.out.println("---- Running loginBeforeEachTest ----");
-        login();  // calling login method from BaseTest
-    }
+	 @BeforeMethod public void loginBeforeEachTest() {
+		 System.out.println("---- Running loginBeforeEachTest ----"); 
+		  login();
+		  }  //calling login method from BaseTest 
 	
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 1)
+
 	public void taskUpdateValidCrendentials() {
 		
-		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
-		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
+		 WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
 
 		taskDetails.clickOnProject();
 		taskDetails.clickOnMyProjects();
@@ -41,7 +41,7 @@ public class TaskUpdateDetailsTest extends BaseTest {
 		taskDetails.clickOnTaskName();
 
 		 WebElement slider = taskDetails.getSlider();
-		 Actions act = new Actions(driver);
+		 Actions act = new Actions(getDriver());
 		 act.clickAndHold(slider).moveByOffset(30, 0).release().perform();
 		 
 
@@ -55,11 +55,11 @@ public class TaskUpdateDetailsTest extends BaseTest {
 	}
 	
 	
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 2)
     public void taskUpdateWithProgressButNoDescription() {
 		
-        TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
 
     
         taskDetails.clickOnProject();
@@ -70,7 +70,7 @@ public class TaskUpdateDetailsTest extends BaseTest {
 
      
         WebElement slider = taskDetails.getSlider();
-        Actions act = new Actions(driver);
+        Actions act = new Actions(getDriver());
         act.clickAndHold(slider).moveByOffset(20, 0).release().perform(); // chnge the number by hardcode
 
        
@@ -84,12 +84,12 @@ public class TaskUpdateDetailsTest extends BaseTest {
     }
 
 	
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 3)
 	
 	public void taskUpdateWithoutProgress() throws InterruptedException {
 		
-		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
 		
 		taskDetails.clickOnProject();
 		taskDetails.clickOnMyProjects();
@@ -98,7 +98,7 @@ public class TaskUpdateDetailsTest extends BaseTest {
 		taskDetails.clickOnTaskName();
 		
 		WebElement slider = taskDetails.getSlider();
-		 Actions act = new Actions(driver);
+		 Actions act = new Actions(getDriver());
 		 act.clickAndHold(slider).moveByOffset(0, 0).release().perform();
 		 
 		   int currentValue = taskDetails.getCurrentProgressValue();
@@ -115,12 +115,12 @@ public class TaskUpdateDetailsTest extends BaseTest {
 	}
     
 
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 4)
 	
 	public void addTaskOnHold() {
 		
-		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
 		
 		taskDetails.clickOnProject();
 		taskDetails.clickOnMyProjects();
@@ -139,11 +139,11 @@ public class TaskUpdateDetailsTest extends BaseTest {
 	
 	
 	
-	@Test(groups = "regression")
+	@Test(groups = "regression", priority = 5)
 	public void restartTask() {
 		
-		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
 		
 		taskDetails.clickOnProject();
 		taskDetails.clickOnMyProjects();
@@ -161,12 +161,11 @@ public class TaskUpdateDetailsTest extends BaseTest {
 	}	
 	
 	
-	@Test(groups = "regression")
-	
+		@Test(groups = "regression", priority = 6)
 	public void taskUpdateWithPenButton() {
 		
-		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
 		
 		taskDetails.clickOnProject();
 		taskDetails.clickOnMyProjects();
@@ -190,11 +189,11 @@ public class TaskUpdateDetailsTest extends BaseTest {
 	}
 	
 	
-	@Test(groups = "regression")
+		@Test(groups = "regression", priority = 7)
 	public void taskUpdateWithPenButtonWithoutTaskName() {
 		
-		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
 		
 		taskDetails.clickOnProject();
 		taskDetails.clickOnMyProjects();
@@ -217,11 +216,11 @@ public class TaskUpdateDetailsTest extends BaseTest {
 		
 	}
 	
-	@Test(groups = "regression")
+		@Test(groups = "regression", priority = 8)
 	public void taskUpdateWithPenButtonWithoutTaskDescription() {
 		
-		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
 		
 		taskDetails.clickOnProject();
 		taskDetails.clickOnMyProjects();
@@ -245,11 +244,11 @@ public class TaskUpdateDetailsTest extends BaseTest {
 	}
 	
 	
-	@Test(groups = "regression")
+		@Test(groups = "regression", priority = 9)
 	public void deleteTask() {
-		SeleniumMethod seleniumMethod = new SeleniumMethod(driver);
-		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(driver);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		SeleniumMethod seleniumMethod = new SeleniumMethod(getDriver());
+		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
 		
 		taskDetails.clickOnProject();
 		taskDetails.clickOnMyProjects();

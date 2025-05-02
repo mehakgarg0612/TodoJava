@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Automation Test Suite">
-  
+<suite name="Automation Test Suite" parallel="classes" thread-count="5">
+
   <listeners>
     <listener class-name="util.ExtentReportListener"/>
   </listeners>
-  
-  <test name="Regression Tests">
+
+  <test name="Regression Tests - Chrome">
+    <parameter name="browser" value="chrome"/>
     <classes>
-     <class name="testCases.LoginTest"/>
-      <class name="testCases.LogoutTest"/>
-      <class name="testCases.SortByPriorityTest"/>
       <class name="testCases.DashboardTest"/>
+      <class name="testCases.LoginTest"/>
+      <class name="testCases.LogoutTest"/>
       <class name="testCases.RegistrationTest"/>
+      <class name="testCases.SortByPriorityTest"/>
+      <class name="testCases.TaskUpdateDetailsTest"/>
+      
       <class name="testCases.MyProfileTest"/>
     </classes>
   </test>
-  
-</suite>
 
+</suite>
