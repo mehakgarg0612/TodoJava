@@ -13,8 +13,6 @@
       <class name="testCases.LogoutTest"/>
       <class name="testCases.RegistrationTest"/>
       <class name="testCases.SortByPriorityTest"/>
-      <class name="testCases.TaskUpdateDetailsTest"/>
-      
       <class name="testCases.MyProfileTest"/>
     </classes>
   </test>

@@ -32,8 +32,18 @@ public class RegistrationTest extends BaseTest {
 		rp.clickRegisterAccount();
 		rp.enterFirstName(config.getRegFirstName());
 		rp.enterLastName(config.getRegLastName());
-		rp.enterEmail(config.getRegEmail());
-		rp.enterEmployeeCode(config.getRegEmployeeCode());
+		
+		String randomPrefix = "Test" + (int)(Math.random() * 1000); // e.g., Math427
+		String email = randomPrefix + "." + config.getRegEmail();
+		rp.enterEmail(email);
+		
+		
+//		rp.enterEmail(config.getRegEmail());
+		
+		String randomEmpCode = "TR" + (int)(Math.random() * 1000); // e.g., TR427
+		rp.enterEmployeeCode(randomEmpCode);
+
+		//rp.enterEmployeeCode(config.getRegEmployeeCode());
 		rp.enterPassword(config.getRegPassword());
 		rp.enterConfirmPassword(config.getRegConfirmPassword());
 		rp.clickSubmit();
@@ -42,7 +52,7 @@ public class RegistrationTest extends BaseTest {
 		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
 		boolean urlMatched = wait.until(ExpectedConditions.urlToBe("https://todolist.idsil.com/login"));
 		LoginPage lp = new LoginPage(getDriver());
-		lp.setEmail(config.getRegEmail());
+		lp.setEmail(email);
 		lp.setPassword(config.getRegPassword());
 		lp.clickLogin();
 		

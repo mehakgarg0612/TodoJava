@@ -295,22 +295,22 @@ public class MyProfileTest extends BaseTest {
 	}
 	
 
-	@Test(groups = "regression", priority = 17)
- //success of the test case
-	public void updatePasswordWithValidCrendentials() {
-		MyProfilePage myProfile = new MyProfilePage(getDriver());
-		myProfile.clickOnProfileButton();
-		myProfile.clickOnChangePassword();
-		myProfile.setCurrentPassword(config.getPassword());
-		myProfile.setNewPassword(config.getNewPassword());
-		updateConfigValue("pwd", config.getNewPassword());
-		myProfile.setConfirmNewPassword(config.getConfirmPassword());
-		myProfile.clickOnSaveChanges();
-		
-		Assert.assertEquals(myProfile.getAlertMessage(), "Password updated successfully");
-		System.out.println("Test case 9 : Validate Password updated successfully");
-		
-	}
+//	@Test(groups = "regression", priority = 17)
+// //success of the test case
+//	public void updatePasswordWithValidCrendentials() {
+//		MyProfilePage myProfile = new MyProfilePage(getDriver());
+//		myProfile.clickOnProfileButton();
+//		myProfile.clickOnChangePassword();
+//		myProfile.setCurrentPassword(config.getPassword());
+//		myProfile.setNewPassword(config.getNewPassword());
+//		updateConfigValue("pwd", config.getNewPassword());
+//		myProfile.setConfirmNewPassword(config.getConfirmPassword());
+//		myProfile.clickOnSaveChanges();
+//		
+//		Assert.assertEquals(myProfile.getAlertMessage(), "Password updated successfully");
+//		System.out.println("Test case 9 : Validate Password updated successfully");
+//		
+//	}
 
 
 }

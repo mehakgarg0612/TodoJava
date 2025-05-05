@@ -11,6 +11,7 @@ import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -39,33 +40,54 @@ public class BaseTest {
     public void openApp() throws IOException {
         config = new ReadConfig();
         logger = LogManager.getLogger(this.getClass());
-      
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-        // options.addArguments("--headless");
+        options.addArguments("--headless");
 
         WebDriver localDriver = new ChromeDriver(options);
         driver.set(localDriver);  // Set thread-local driver
 
-        getDriver().manage().deleteAllCookies();
-        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         getDriver().manage().window().maximize();
+        
+        // Navigate to the URL first
+        String appURL = config.getAppURL();
+        System.out.println("URL is: " + appURL);
+        getDriver().get(appURL);
+        logger.info("Navigated to URL: " + appURL);
 
-        System.out.println("URL is: " + config.getAppURL());
-        getDriver().get(config.getAppURL());
+        // Wait until body tag is loaded (to ensure DOM is ready)
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("body")));
 
-        logger.info("Application opened successfully and navigated to URL.");
-        // login();
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        if (getDriver() != null) {
-            getDriver().quit();
-            driver.remove();  // Clear thread-local variable
-            logger.info("Browser closed");
+        // Now delete cookies after page is stable
+        try {
+            getDriver().manage().deleteAllCookies();
+            logger.info("Cookies deleted successfully.");
+        } catch (Exception e) {
+            logger.warn("Could not delete cookies: " + e.getMessage());
         }
     }
+
+
+    @AfterMethod(alwaysRun = true)
+    public void tearDown() {
+        WebDriver localDriver = getDriver();
+        if (localDriver != null) {
+            try {
+                // Optional: short wait to let async browser events settle
+                Thread.sleep(1000);
+
+                localDriver.quit(); // This is where the error happens sometimes
+                logger.info("Browser closed successfully.");
+            } catch (Exception e) {
+                logger.error("Error during driver.quit(): " + e.getMessage(), e);
+            } finally {
+                driver.remove(); // Clean up ThreadLocal
+            }
+        }
+    }
+
 
     @AfterSuite
     public void afterSuite(ITestResult result) {
