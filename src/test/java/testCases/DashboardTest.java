@@ -20,11 +20,7 @@ public class DashboardTest extends BaseTest {
 	@Test(groups = "regression", priority = 1)
     public void verifyDashboardElements() {
 
-        // Use getDriver() instead of direct driver
-        LoginPage lp = new LoginPage(getDriver());
-        lp.setEmail(config.getEmail());
-        lp.setPassword(config.getPassword());
-        lp.clickLogin();
+		
 
         DashboardPage dp = new DashboardPage(getDriver());
         String greeting = dp.getGreetingMessage();

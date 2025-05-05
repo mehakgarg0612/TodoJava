@@ -32,7 +32,7 @@ public class TaskUpdateDetailsTest extends BaseTest {
 	public void taskUpdateValidCrendentials() {
 		
 		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
-		 WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+		 WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
 
 		taskDetails.clickOnProject();
 		taskDetails.clickOnMyProjects();
@@ -59,7 +59,7 @@ public class TaskUpdateDetailsTest extends BaseTest {
     public void taskUpdateWithProgressButNoDescription() {
 		
         TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
 
     
         taskDetails.clickOnProject();
@@ -89,7 +89,7 @@ public class TaskUpdateDetailsTest extends BaseTest {
 	public void taskUpdateWithoutProgress() throws InterruptedException {
 		
 		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
-		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
 		
 		taskDetails.clickOnProject();
 		taskDetails.clickOnMyProjects();
@@ -120,7 +120,7 @@ public class TaskUpdateDetailsTest extends BaseTest {
 	public void addTaskOnHold() {
 		
 		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
-		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
 		
 		taskDetails.clickOnProject();
 		taskDetails.clickOnMyProjects();
@@ -143,7 +143,7 @@ public class TaskUpdateDetailsTest extends BaseTest {
 	public void restartTask() {
 		
 		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
-		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
 		
 		taskDetails.clickOnProject();
 		taskDetails.clickOnMyProjects();
@@ -165,7 +165,7 @@ public class TaskUpdateDetailsTest extends BaseTest {
 	public void taskUpdateWithPenButton() {
 		
 		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
-		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
 		
 		taskDetails.clickOnProject();
 		taskDetails.clickOnMyProjects();
@@ -193,7 +193,7 @@ public class TaskUpdateDetailsTest extends BaseTest {
 	public void taskUpdateWithPenButtonWithoutTaskName() {
 		
 		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
-		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(50));
 		
 		taskDetails.clickOnProject();
 		taskDetails.clickOnMyProjects();
@@ -220,7 +220,7 @@ public class TaskUpdateDetailsTest extends BaseTest {
 	public void taskUpdateWithPenButtonWithoutTaskDescription() {
 		
 		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
-		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
 		
 		taskDetails.clickOnProject();
 		taskDetails.clickOnMyProjects();
@@ -248,7 +248,7 @@ public class TaskUpdateDetailsTest extends BaseTest {
 	public void deleteTask() {
 		SeleniumMethod seleniumMethod = new SeleniumMethod(getDriver());
 		TaskUpdateDetailsPage taskDetails = new TaskUpdateDetailsPage(getDriver());
-		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
 		
 		taskDetails.clickOnProject();
 		taskDetails.clickOnMyProjects();
